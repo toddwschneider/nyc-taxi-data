@@ -1,0 +1,4 @@
+UPDATE uber_trips_2015
+SET nyct2010_ntacode = uber_taxi_zone_lookups.nyct2010_ntacode
+FROM uber_taxi_zone_lookups
+WHERE uber_trips_2015.location_id = uber_taxi_zone_lookups.location_id;
