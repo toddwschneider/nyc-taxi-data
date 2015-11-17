@@ -342,6 +342,7 @@ ggplot(data = filter(airport_pickups_by_type, date >= "2014-01-01", type != "Gre
   expand_limits(y = 0) +
   theme_tws(base_size = 20) +
   theme(legend.position = "bottom")
+add_credits()
 dev.off()
 
 # Die Hard 3, UWS to Wall Street
@@ -492,10 +493,11 @@ png(filename = "graphs/northside_williamsburg_pickups.png", width = 640, height 
 ggplot(data = northside, aes(x = date, y = monthly)) +
   geom_line(size = 1) +
   scale_x_date("") +
-  scale_y_continuous("Taxi pickups, trailing 28 days\n", labels = comma) +
+  scale_y_continuous("pickups, trailing 28 days\n", labels = comma) +
   title_with_subtitle("Northside Williamsburg Taxi Pickups", "N 7th to N 14th, East River to Berry St, based on NYC TLC data") +
   theme_tws(base_size = 20) +
   theme(legend.position = "bottom")
+add_credits()
 dev.off()
 
 northside_pickup_locations = query("
@@ -583,6 +585,7 @@ ggplot(data = filter(gs, dow %in% 1:5),
   scale_y_continuous("taxi drop offs\n", labels = comma) +
   title_with_subtitle("Goldman Sachs Weekday Taxi Drop Offs at 200 West St", "Based on NYC TLC data from 1/2009–6/2015") +
   theme_tws(base_size = 19)
+add_credits()
 dev.off()
 
 png(filename = "graphs/citi_dropoffs.png", width = 640, height = 420)
@@ -593,6 +596,7 @@ ggplot(data = filter(citi, dow %in% 1:5),
   scale_y_continuous("taxi drop offs\n", labels = comma) +
   title_with_subtitle("Citigroup Weekday Taxi Drop Offs at 388 Greenwich St", "Based on NYC TLC data from 1/2009–6/2015") +
   theme_tws(base_size = 19)
+add_credits()
 dev.off()
 
 # cash vs. credit
@@ -647,6 +651,7 @@ ggplot(data = payments, aes(x = month, y = frac_credit)) +
   title_with_subtitle("Cash vs. Credit NYC Taxi Payments", "Based on NYC TLC data") +
   expand_limits(y = 0) +
   theme_tws(base_size = 20)
+add_credits()
 dev.off()
 
 payments_split = payments_split %>%
@@ -662,4 +667,5 @@ ggplot(data = payments_split, aes(x = month, y = frac_credit, color = total_amou
   expand_limits(y = 0) +
   theme_tws(base_size = 20) +
   theme(legend.position = "bottom")
+add_credits()
 dev.off()
