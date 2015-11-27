@@ -38,7 +38,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 
 ## Schema
 
-- `trips` table contains all yellow and green taxi trips, plus Uber pickups from April 2014 through September 2014. Each trip has a `cab_type_id`, which references the `cab_types` table and refers to one of `'yellow'`, `'green'`, or '`uber`'. Each trip maps to a census tract for pickup and dropoff
+- `trips` table contains all yellow and green taxi trips, plus Uber pickups from April 2014 through September 2014. Each trip has a `cab_type_id`, which references the `cab_types` table and refers to one of `yellow`, `green`, or `uber`. Each trip maps to a census tract for pickup and dropoff
 - `nyct2010` table contains NYC census tracts, plus a fake census tract for the Newark Airport. It also maps census tracts to NYC's official neighborhood tabulation areas
 - `uber_trips_2015` table contains Uber pickups from January 2015 through June, 2015. These are kept in a separate table because they don't have specific latitude/longitude coordinates, only location IDs. The location IDs are stored in the `uber_taxi_zone_lookups` table, which also maps them (approximately) to neighborhood tabulation areas
 - `central_park_weather_observations` has summary weather data by date
