@@ -21,6 +21,12 @@ https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-03.csv
 https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-04.csv
 https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-05.csv
 https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-06.csv
+https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-07.csv
+https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-08.csv
+https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-09.csv
+https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-10.csv
+https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-11.csv
+https://storage.googleapis.com/tlc-trip-data/2015/green_tripdata_2015-12.csv
 https://storage.googleapis.com/tlc-trip-data/2009/yellow_tripdata_2009-01.csv
 https://storage.googleapis.com/tlc-trip-data/2009/yellow_tripdata_2009-02.csv
 https://storage.googleapis.com/tlc-trip-data/2009/yellow_tripdata_2009-03.csv
@@ -99,3 +105,9 @@ https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-03.csv
 https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-04.csv
 https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-05.csv
 https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-06.csv
+https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-07.csv
+https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-08.csv
+https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-09.csv
+https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-10.csv
+https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-11.csv
+https://storage.googleapis.com/tlc-trip-data/2015/yellow_tripdata_2015-12.csv

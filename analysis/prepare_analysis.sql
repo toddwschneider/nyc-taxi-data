@@ -47,7 +47,7 @@ FROM trips
 WHERE dropoff_nyct2010_gid IS NOT NULL
   AND dropoff_datetime IS NOT NULL
   AND dropoff_datetime > '2008-12-31'
-  AND dropoff_datetime < '2015-07-02'
+  AND dropoff_datetime < '2016-01-02'
 GROUP BY dropoff_hour, cab_type_id, dropoff_nyct2010_gid;
 
 CREATE TABLE hourly_uber_2015_pickups AS
