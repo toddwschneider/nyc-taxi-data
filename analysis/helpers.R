@@ -19,7 +19,7 @@ add_credits = function(fontsize = 12, color = "#777777", xpos = 0.99) {
             x = xpos,
             y = 0.02,
             just = "right",
-            gp = gpar(fontsize = fontsize, col = color))
+            gp = gpar(fontsize = fontsize, col = color, fontfamily = font_family))
 }
 
 title_with_subtitle = function(title, subtitle = "") {

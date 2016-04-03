@@ -669,3 +669,76 @@ ggplot(data = payments_split, aes(x = month, y = frac_credit, color = total_amou
   theme(legend.position = "bottom")
 add_credits()
 dev.off()
+
+# analysis of TLC summary reports
+uber_lyft_trips_per_day = tbl_df(query("
+  SELECT
+    dba_category AS category,
+    pickup_end_date AS date,
+    ROUND(SUM(total_dispatched_trips)::numeric / 7) AS trips_per_day
+  FROM fhv_weekly_reports
+  WHERE dba_category IN ('uber', 'lyft')
+    AND pickup_end_date >= '2015-01-08'
+  GROUP BY dba_category, pickup_end_date
+  ORDER BY dba_category, pickup_end_date
+"))
+
+yellow_trips_per_day = tbl_df(query("
+  SELECT
+    month AS date,
+    trips_per_day
+  FROM yellow_monthly_reports
+  ORDER BY month
+")) %>% mutate(category = "yellow")
+
+trips_per_day = bind_rows(yellow_trips_per_day, uber_lyft_trips_per_day) %>%
+  mutate(category = factor(category, levels = c("yellow", "uber", "lyft"), labels = c("Yellow Taxi", "Uber", "Lyft")))
+
+png(filename = "graphs/taxi_uber_lyft_trips_per_day.png", width = 640, height = 520)
+ggplot(data = trips_per_day, aes(x = date, y = trips_per_day, color = category)) +
+  geom_line(size = 1) +
+  scale_y_continuous("Trips per day\n", labels = unit_format("k", 1/1000, "")) +
+  scale_x_date("") +
+  scale_color_manual("", values = c("#F7B731", "#161629", "#E70B81")) +
+  title_with_subtitle("NYC Taxis Losing Market Share to Uber", "Trips per day in NYC, based on TLC summary data") +
+  theme_tws(base_size = 24) +
+  theme(legend.position = "bottom")
+add_credits()
+dev.off()
+
+png(filename = "graphs/lyft_trips_per_day.png", width = 640, height = 520)
+ggplot(data = filter(trips_per_day, category == "Lyft"), aes(x = date, y = trips_per_day)) +
+  geom_line(size = 1.5, color = "#E70B81") +
+  scale_y_continuous("Trips per day\n", labels = comma) +
+  scale_x_date("", labels = date_format("%b '%y"), minor_breaks = date_breaks("1 month")) +
+  title_with_subtitle("Lyft NYC Trips Per Day", "Based on TLC summary data") +
+  expand_limits(y = 0) +
+  theme_tws(base_size = 24) +
+  theme(legend.position = "bottom")
+add_credits()
+dev.off()
+
+uber_lyft_vehicles = tbl_df(query("
+  SELECT
+    dba_category AS category,
+    pickup_end_date AS date,
+    SUM(unique_dispatched_vehicles) AS vehicles
+  FROM fhv_weekly_reports_view
+  WHERE week_number NOT IN (1, 53)
+    AND dba_category IN ('uber', 'lyft')
+  GROUP BY dba_category, pickup_end_date
+  HAVING SUM(unreliable_vehicles_count::int) = 0
+  ORDER BY dba_category, pickup_end_date
+"))
+
+yellow_vehicles = tbl_df(query("
+  SELECT
+    month AS date,
+    trips_per_day,
+    unique_medallions AS vehicles
+  FROM yellow_monthly_reports
+  ORDER BY month
+")) %>% mutate(category = "yellow")
+
+vehicles = bind_rows(uber_lyft_vehicles, yellow_vehicles) %>%
+  mutate(category = factor(category, levels = c("yellow", "uber", "lyft"), labels = c("Yellow Taxi", "Uber", "Lyft")))

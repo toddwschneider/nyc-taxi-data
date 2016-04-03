@@ -63,6 +63,12 @@ These are bundled with the repository, so no need to download separately, but:
 
 [Google BigQuery](https://cloud.google.com/bigquery/) and [Amazon Redshift](https://aws.amazon.com/redshift/) would probably provide significant performance improvements over PostgreSQL. A lot of the data is already available on BigQuery, but in scattered tables, and each trip has only by latitude and longitude coordinates, not census tracts and neighborhoods. PostGIS seemed like the easiest way to map coordinates to census tracts. Once the mapping is complete, it might make sense to load the data back into BigQuery or Redshift to make the analysis faster. Note that BigQuery and Redshift cost some amount of money, while PostgreSQL and PostGIS are free.
 
+## TLC summary statistics
+
+There's a Ruby script in the `tlc_statistics/` folder to import data from the TLC's [summary statistics reports](http://www.nyc.gov/html/tlc/html/about/statistics.shtml):
+
+`ruby import_statistics_data.rb`
+
 ## Questions/issues/contact
 
 todd@toddwschneider.com, or open a GitHub issue
