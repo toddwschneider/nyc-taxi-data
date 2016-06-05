@@ -405,7 +405,7 @@ VALUES
                                         -74.009867 40.721493,
                                         -74.010140 40.720053,
                                         -74.012083 40.720267,
-                                        -74.011869 40.7217236))', 4326)),
+                                        -74.011869 40.7217236))', 4326));
 
 CREATE INDEX index_custom_geoms ON custom_geometries USING gist (geom);
 
