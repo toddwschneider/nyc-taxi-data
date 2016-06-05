@@ -222,15 +222,6 @@ ntas = query("SELECT DISTINCT ntacode, ntaname, boroname FROM nyct2010 ORDER BY 
 nta_codes_to_calculate = unique(filter(totals_by_nta, total > 1000)$ntacode)
 ntas_to_calculate = filter(ntas, ntacode %in% nta_codes_to_calculate)
 
-airport_monthly = query("
-  SELECT *
-  FROM airport_trips_summary_monthly_avg
-  ORDER BY ntacode, airport_code, month
-")
-airport_monthly$airport_code = factor(airport_monthly$airport_code,
-                                      levels = c("LGA", "JFK", "EWR"),
-                                      labels = c("LaGuardia", "JFK", "Newark"))
-
 airports = data.frame(code = c("LGA", "JFK", "EWR"),
                       name = c("LaGuardia", "JFK", "Newark Airport"),
                       stringsAsFactors = FALSE)
