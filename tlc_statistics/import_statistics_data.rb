@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'csv'
-require 'roo'
 require 'rest-client'
 require 'active_support'
 require 'active_support/core_ext'
@@ -30,29 +29,15 @@ CSV.open("yellow_monthly_data.csv", "wb") do |csv|
 end
 
 # FHV weekly data (includes Uber and Lyft)
-fhv_weekly_data_url = "http://www.nyc.gov/html/tlc/downloads/excel/data_reports_weekly_fhv_base.xlsx"
-fhv = Roo::Spreadsheet.open(fhv_weekly_data_url)
-
-header_row_index = (fhv.first_row..fhv.last_row).detect do |i|
-  fhv.row(i).compact.size > 5
-end
-header_row = fhv.row(header_row_index)
-
-column_indexes_to_select = header_row.map.with_index do |name, idx|
-  idx if name.present?
-end.compact
-
-data_row_range = (header_row_index + 1)..fhv.last_row
+fhv_weekly_data_url = "http://data.cityofnewyork.us/api/views/2v9c-2k7f/rows.csv?accessType=DOWNLOAD"
+fhv = CSV.parse(RestClient.get(fhv_weekly_data_url))
+fhv.shift
 
 CSV.open("fhv_weekly_data.csv", "wb") do |csv|
-  data_row_range.each do |i|
-    row = fhv.row(i)
+  fhv.each do |row|
+    dba_string = row[3]
 
-    values = column_indexes_to_select.map { |col_idx| row[col_idx] }
-
-    dba_string = values[3]
-
-    values << if dba_string =~ /^uber/i
+    dba = if dba_string =~ /^uber/i
       "uber"
     elsif dba_string =~ /^lyft/i
       "lyft"
@@ -60,7 +45,7 @@ CSV.open("fhv_weekly_data.csv", "wb") do |csv|
       "other"
     end
 
-    csv << values
+    csv << (row + [dba])
   end
 end
 
