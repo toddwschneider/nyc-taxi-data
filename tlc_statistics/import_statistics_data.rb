@@ -12,7 +12,7 @@ yellow_monthly_data.shift
 CSV.open("yellow_monthly_data.csv", "wb") do |csv|
   yellow_monthly_data.each do |row|
     csv << [
-      Date.strptime(row[0], "%y-%B").end_of_month,
+      Date.strptime(row[0], "%Y-%m").end_of_month,
       row[1].gsub(",", "").to_i,
       row[2].gsub(",", "").to_i,
       row[3].gsub(",", "").to_i,
