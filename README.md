@@ -40,7 +40,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 
 - `trips` table contains all yellow and green taxi trips, plus Uber pickups from April 2014 through September 2014. Each trip has a `cab_type_id`, which references the `cab_types` table and refers to one of `yellow`, `green`, or `uber`. Each trip maps to a census tract for pickup and dropoff
 - `nyct2010` table contains NYC census tracts, plus a fake census tract for the Newark Airport. It also maps census tracts to NYC's official neighborhood tabulation areas
-- `uber_trips_2015` table contains Uber pickups from January 2015 through June, 2015. These are kept in a separate table because they don't have specific latitude/longitude coordinates, only location IDs. The location IDs are stored in the `uber_taxi_zone_lookups` table, which also maps them (approximately) to neighborhood tabulation areas
+- `uber_trips_2015` table contains Uber pickups from January 2015 through June, 2015. These are kept in a separate table because they don't have specific latitude/longitude coordinates, only location IDs. The location IDs are stored in the `taxi_zone_lookups` table, which also maps them (approximately) to neighborhood tabulation areas
 - `central_park_weather_observations` has summary weather data by date
 
 ## Other data sources
@@ -61,7 +61,7 @@ These are bundled with the repository, so no need to download separately, but:
 
 ## Why not use BigQuery or Redshift?
 
-[Google BigQuery](https://cloud.google.com/bigquery/) and [Amazon Redshift](https://aws.amazon.com/redshift/) would probably provide significant performance improvements over PostgreSQL. A lot of the data is already available on BigQuery, but in scattered tables, and each trip has only by latitude and longitude coordinates, not census tracts and neighborhoods. PostGIS seemed like the easiest way to map coordinates to census tracts. Once the mapping is complete, it might make sense to load the data back into BigQuery or Redshift to make the analysis faster. Note that BigQuery and Redshift cost some amount of money, while PostgreSQL and PostGIS are free.
+[Google BigQuery](https://cloud.google.com/bigquery/) and [Amazon Redshift](https://aws.amazon.com/redshift/) would probably provide significant performance improvements over PostgreSQL. A lot of the data is already available on BigQuery, but in scattered tables, and each trip has only latitude and longitude coordinates, not census tracts and neighborhoods. PostGIS seemed like the easiest way to map coordinates to census tracts. Once the mapping is complete, it might make sense to load the data back into BigQuery or Redshift to make the analysis faster. Note that BigQuery and Redshift cost some amount of money, while PostgreSQL and PostGIS are free.
 
 ## TLC summary statistics
 

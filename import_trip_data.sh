@@ -18,17 +18,15 @@ yellow_schema_2015="(vendor_id,tpep_pickup_datetime,tpep_dropoff_datetime,passen
 
 for filename in data/green*.csv; do
   [[ $filename =~ $year_month_regex ]]
+  year=${BASH_REMATCH[1]}
+  month=$((10#${BASH_REMATCH[2]}))
 
-  if [ ${BASH_REMATCH[1]} == 2015 ]
-  then
-    if [ $((10#${BASH_REMATCH[2]})) -gt 6 ]
-    then
-      schema=$green_schema_2015_h2
-    else
-      schema=$green_schema_2015_h1
-    fi
-  else
+  if [ $year -lt 2015 ]; then
     schema=$green_schema_pre_2015
+  elif [ $year -eq 2015 ] && [ $month -lt 7 ]; then
+    schema=$green_schema_2015_h1
+  else
+    schema=$green_schema_2015_h2
   fi
 
   echo "`date`: beginning load for ${filename}"
@@ -40,12 +38,13 @@ done;
 
 for filename in data/yellow*.csv; do
   [[ $filename =~ $year_month_regex ]]
+  year=${BASH_REMATCH[1]}
 
-  if [ ${BASH_REMATCH[1]} == 2015 ]
+  if [ $year -lt 2015 ]
   then
-    schema=$yellow_schema_2015
-  else
     schema=$yellow_schema_pre_2015
+  else
+    schema=$yellow_schema_2015
   fi
 
   echo "`date`: beginning load for ${filename}"

@@ -73,12 +73,29 @@ CREATE TABLE uber_trips_2015 (
   nyct2010_ntacode varchar
 );
 
-CREATE TABLE uber_taxi_zone_lookups (
+CREATE TABLE taxi_zone_lookups (
   location_id integer primary key,
   borough varchar,
   zone varchar,
+  service_zone varchar,
   nyct2010_ntacode varchar
 );
+
+CREATE TABLE fhv_trips (
+  id serial primary key,
+  dispatching_base_num varchar,
+  pickup_datetime timestamp without time zone,
+  location_id integer
+);
+
+CREATE TABLE fhv_bases (
+  base_number varchar primary key,
+  base_name varchar,
+  dba varchar,
+  dba_category varchar
+);
+
+CREATE INDEX index_fhv_bases_on_dba_category ON fhv_bases (dba_category);
 
 CREATE TABLE cab_types (
   id serial primary key,
@@ -132,7 +149,7 @@ CREATE TABLE central_park_weather_observations_raw (
   average_wind_speed_tenths_of_meters_per_second numeric
 );
 
-CREATE INDEX index_weather_observations ON central_park_weather_observations_raw (date);
+CREATE UNIQUE INDEX index_weather_observations ON central_park_weather_observations_raw (date);
 
 CREATE VIEW central_park_weather_observations AS
 SELECT
