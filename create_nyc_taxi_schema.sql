@@ -73,12 +73,29 @@ CREATE TABLE uber_trips_2015 (
   nyct2010_ntacode varchar
 );
 
-CREATE TABLE uber_taxi_zone_lookups (
+CREATE TABLE taxi_zone_lookups (
   location_id integer primary key,
   borough varchar,
   zone varchar,
+  service_zone varchar,
   nyct2010_ntacode varchar
 );
+
+CREATE TABLE fhv_trips (
+  id serial primary key,
+  dispatching_base_num varchar,
+  pickup_datetime timestamp without time zone,
+  location_id integer
+);
+
+CREATE TABLE fhv_bases (
+  base_number varchar primary key,
+  base_name varchar,
+  dba varchar,
+  dba_category varchar
+);
+
+CREATE INDEX index_fhv_bases_on_dba_category ON fhv_bases (dba_category);
 
 CREATE TABLE cab_types (
   id serial primary key,
@@ -120,30 +137,16 @@ CREATE TABLE trips (
 SELECT AddGeometryColumn('trips', 'pickup', 4326, 'POINT', 2);
 SELECT AddGeometryColumn('trips', 'dropoff', 4326, 'POINT', 2);
 
-CREATE TABLE central_park_weather_observations_raw (
+CREATE TABLE central_park_weather_observations (
   station_id varchar,
   station_name varchar,
   date date,
-  precipitation_tenths_of_mm numeric,
-  snow_depth_mm numeric,
-  snowfall_mm numeric,
-  max_temperature_tenths_degrees_celsius numeric,
-  min_temperature_tenths_degrees_celsius numeric,
-  average_wind_speed_tenths_of_meters_per_second numeric
+  precipitation numeric,
+  snow_depth numeric,
+  snowfall numeric,
+  max_temperature numeric,
+  min_temperature numeric,
+  average_wind_speed numeric
 );
 
-CREATE INDEX index_weather_observations ON central_park_weather_observations_raw (date);
-
-CREATE VIEW central_park_weather_observations AS
-SELECT
-  date,
-  precipitation_tenths_of_mm / (100 * 2.54) AS precipitation,
-  snow_depth_mm / (10 * 2.54) AS snow_depth,
-  snowfall_mm / (10 * 2.54) AS snowfall,
-  max_temperature_tenths_degrees_celsius * 9 / 50 + 32 AS max_temperature,
-  min_temperature_tenths_degrees_celsius * 9 / 50 + 32 AS min_temperature,
-  CASE
-    WHEN average_wind_speed_tenths_of_meters_per_second >= 0
-    THEN average_wind_speed_tenths_of_meters_per_second / 10 * (100 * 60 * 60) / (2.54 * 12 * 5280)
-  END AS average_wind_speed
-FROM central_park_weather_observations_raw;
+CREATE UNIQUE INDEX index_weather_observations ON central_park_weather_observations (date);

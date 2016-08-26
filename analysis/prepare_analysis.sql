@@ -56,7 +56,7 @@ SELECT
   u.nyct2010_ntacode,
   l.borough,
   COUNT(*)
-FROM uber_trips_2015 u, uber_taxi_zone_lookups l
+FROM uber_trips_2015 u, taxi_zone_lookups l
 WHERE u.location_id = l.location_id
 GROUP BY pickup_hour, u.nyct2010_ntacode, l.borough;
 

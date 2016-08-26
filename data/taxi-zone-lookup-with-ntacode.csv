@@ -1,266 +1,266 @@
-location_id,borough,zone,ntacode
-1,EWR,Newark Airport,NJ01
-2,Queens,Jamaica Bay,QN61
-3,Bronx,Allerton/Pelham Gardens,BX31
-4,Manhattan,Alphabet City,MN22
-5,Staten Island,Arden Heights,SI48
-6,Staten Island,Arrochar/Fort Wadsworth,SI14
-7,Queens,Astoria,QN70
-8,Queens,Astoria Park,QN70
-9,Queens,Auburndale,QN48
-10,Queens,Baisley Park,QN76
-11,Brooklyn,Bath Beach,BK27
-12,Manhattan,Battery Park,MN25
-13,Manhattan,Battery Park City,MN25
-14,Brooklyn,Bay Ridge,BK31
-15,Queens,Bay Terrace/Fort Totten,QN47
-16,Queens,Bayside,QN46
-17,Brooklyn,Bedford,BK75
-18,Bronx,Bedford Park,BX05
-19,Queens,Bellerose,QN43
-20,Bronx,Belmont,BX06
-21,Brooklyn,Bensonhurst East,BK29
-22,Brooklyn,Bensonhurst West,BK28
-23,Staten Island,Bloomfield/Emerson Hill,SI24
-24,Manhattan,Bloomingdale,MN12
-25,Brooklyn,Boerum Hill,BK38
-26,Brooklyn,Borough Park,BK88
-27,Queens,Breezy Point/Fort Tilden/Riis Beach,QN10
-28,Queens,Briarwood/Jamaica Hills,QN35
-29,Brooklyn,Brighton Beach,BK19
-30,Queens,Broad Channel,QN10
-31,Bronx,Bronx Park,BX49
-32,Bronx,Bronxdale,BX07
-33,Brooklyn,Brooklyn Heights,BK09
-34,Brooklyn,Brooklyn Navy Yard,BK69
-35,Brooklyn,Brownsville,BK81
-36,Brooklyn,Bushwick North,BK77
-37,Brooklyn,Bushwick South,BK78
-38,Queens,Cambria Heights,QN33
-39,Brooklyn,Canarsie,BK50
-40,Brooklyn,Carroll Gardens,BK33
-41,Manhattan,Central Harlem,MN03
-42,Manhattan,Central Harlem North,MN03
-43,Manhattan,Central Park,MN99
-44,Staten Island,Charleston/Tottenville,SI11
-45,Manhattan,Chinatown,MN27
-46,Bronx,City Island,BX10
-47,Bronx,Claremont/Bathgate,BX01
-48,Manhattan,Clinton East,MN15
-49,Brooklyn,Clinton Hill,BK69
-50,Manhattan,Clinton West,MN15
-51,Bronx,Co-Op City,BX13
-52,Brooklyn,Cobble Hill,BK09
-53,Queens,College Point,QN23
-54,Brooklyn,Columbia Street,BK33
-55,Brooklyn,Coney Island,BK21
-56,Queens,Corona,QN25
-57,Queens,Corona,QN25
-58,Bronx,Country Club,BX10
-59,Bronx,Crotona Park,BX75
-60,Bronx,Crotona Park East,BX75
-61,Brooklyn,Crown Heights North,BK61
-62,Brooklyn,Crown Heights South,BK63
-63,Brooklyn,Cypress Hills,BK83
-64,Queens,Douglaston,QN45
-65,Brooklyn,Downtown Brooklyn/MetroTech,BK38
-66,Brooklyn,DUMBO/Vinegar Hill,BK38
-67,Brooklyn,Dyker Heights,BK30
-68,Manhattan,East Chelsea,MN13
-69,Bronx,East Concourse/Concourse Village,BX14
-70,Queens,East Elmhurst,QN27
-71,Brooklyn,East Flatbush/Farragut,BK91
-72,Brooklyn,East Flatbush/Remsen Village,BK96
-73,Queens,East Flushing,QN52
-74,Manhattan,East Harlem North,MN34
-75,Manhattan,East Harlem South,MN33
-76,Brooklyn,East New York,BK82
-77,Brooklyn,East New York/Pennsylvania Avenue,BK85
-78,Bronx,East Tremont,BX17
-79,Manhattan,East Village,MN22
-80,Brooklyn,East Williamsburg,BK90
-81,Bronx,Eastchester,BX03
-82,Queens,Elmhurst,QN29
-83,Queens,Elmhurst/Maspeth,QN50
-84,Staten Island,Eltingville/Annadale/Prince's Bay,SI01
-85,Brooklyn,Erasmus,BK95
-86,Queens,Far Rockaway,QN15
-87,Manhattan,Financial District North,MN25
-88,Manhattan,Financial District South,MN25
-89,Brooklyn,Flatbush/Ditmas Park,BK42
-90,Manhattan,Flatiron,MN13
-91,Brooklyn,Flatlands,BK58
-92,Queens,Flushing,QN22
-93,Queens,Flushing Meadows-Corona Park,QN22
-94,Bronx,Fordham South,BX40
-95,Queens,Forest Hills,QN17
-96,Queens,Forest Park/Highland Park,QN17
-97,Brooklyn,Fort Greene,BK68
-98,Queens,Fresh Meadows,QN41
-99,Staten Island,Freshkills Park,SI99
-100,Manhattan,Garment District,MN13
-101,Queens,Glen Oaks,QN44
-102,Queens,Glendale,QN19
-103,Manhattan,Governor's Island/Ellis Island/Liberty Island,MN99
-104,Manhattan,Governor's Island/Ellis Island/Liberty Island,MN99
-105,Manhattan,Governor's Island/Ellis Island/Liberty Island,MN99
-106,Brooklyn,Gowanus,BK37
-107,Manhattan,Gramercy,MN21
-108,Brooklyn,Gravesend,BK26
-109,Staten Island,Great Kills,SI54
-110,Staten Island,Great Kills Park,SI54
-111,Brooklyn,Green-Wood Cemetery,BK99
-112,Brooklyn,Greenpoint,BK76
-113,Manhattan,Greenwich Village North,MN23
-114,Manhattan,Greenwich Village South,MN23
-115,Staten Island,Grymes Hill/Clifton,SI08
-116,Manhattan,Hamilton Heights,MN04
-117,Queens,Hammels/Arverne,QN12
-118,Staten Island,Heartland Village/Todt Hill,SI24
-119,Bronx,Highbridge,BX26
-120,Manhattan,Highbridge Park,MN36
-121,Queens,Hillcrest/Pomonok,QN38
-122,Queens,Hollis,QN07
-123,Brooklyn,Homecrest,BK25
-124,Queens,Howard Beach,QN57
-125,Manhattan,Hudson Sq,MN24
-126,Bronx,Hunts Point,BX27
-127,Manhattan,Inwood,MN01
-128,Manhattan,Inwood Hill Park,MN01
-129,Queens,Jackson Heights,QN28
-130,Queens,Jamaica,QN61
-131,Queens,Jamaica Estates,QN06
-132,Queens,JFK Airport,QN98
-133,Brooklyn,Kensington,BK41
-134,Queens,Kew Gardens,QN60
-135,Queens,Kew Gardens Hills,QN37
-136,Bronx,Kingsbridge Heights,BX30
-137,Manhattan,Kips Bay,MN20
-138,Queens,LaGuardia Airport,QN98
-139,Queens,Laurelton,QN66
-140,Manhattan,Lenox Hill East,MN31
-141,Manhattan,Lenox Hill West,MN31
-142,Manhattan,Lincoln Square East,MN14
-143,Manhattan,Lincoln Square West,MN14
-144,Manhattan,Little Italy/NoLiTa,MN24
-145,Queens,Long Island City/Hunters Point,QN68
-146,Queens,Long Island City/Queens Plaza,QN68
-147,Bronx,Longwood,BX33
-148,Manhattan,Lower East Side,MN28
-149,Brooklyn,Madison,BK44
-150,Brooklyn,Manhattan Beach,BK17
-151,Manhattan,Manhattan Valley,MN12
-152,Manhattan,Manhattanville,MN06
-153,Manhattan,Marble Hill,MN01
-154,Brooklyn,Marine Park/Floyd Bennett Field,BK45
-155,Brooklyn,Marine Park/Mill Basin,BK45
-156,Staten Island,Mariners Harbor,SI12
-157,Queens,Maspeth,QN30
-158,Manhattan,Meatpacking/West Village West,MN23
-159,Bronx,Melrose South,BX34
-160,Queens,Middle Village,QN21
-161,Manhattan,Midtown Center,MN17
-162,Manhattan,Midtown East,MN17
-163,Manhattan,Midtown North,MN17
-164,Manhattan,Midtown South,MN17
-165,Brooklyn,Midwood,BK43
-166,Manhattan,Morningside Heights,MN09
-167,Bronx,Morrisania/Melrose,BX35
-168,Bronx,Mott Haven/Port Morris,BX39
-169,Bronx,Mount Hope,BX41
-170,Manhattan,Murray Hill,MN20
-171,Queens,Murray Hill-Queens,QN51
-172,Staten Island,New Dorp/Midland Beach,SI45
-173,Queens,North Corona,QN26
-174,Bronx,Norwood,BX43
-175,Queens,Oakland Gardens,QN42
-176,Staten Island,Oakwood,SI25
-177,Brooklyn,Ocean Hill,BK79
-178,Brooklyn,Ocean Parkway South,BK46
-179,Queens,Old Astoria,QN71
-180,Queens,Ozone Park,QN56
-181,Brooklyn,Park Slope,BK37
-182,Bronx,Parkchester,BX46
-183,Bronx,Pelham Bay,BX10
-184,Bronx,Pelham Bay Park,BX10
-185,Bronx,Pelham Parkway,BX49
-186,Manhattan,Penn Station/Madison Sq West,MN17
-187,Staten Island,Port Richmond,SI28
-188,Brooklyn,Prospect-Lefferts Gardens,BK60
-189,Brooklyn,Prospect Heights,BK64
-190,Brooklyn,Prospect Park,BK99
-191,Queens,Queens Village,QN34
-192,Queens,Queensboro Hill,QN62
-193,Queens,Queensbridge/Ravenswood,QN68
-194,Manhattan,Randalls Island,MN99
-195,Brooklyn,Red Hook,BK33
-196,Queens,Rego Park,QN18
-197,Queens,Richmond Hill,QN54
-198,Queens,Ridgewood,QN20
-199,Bronx,Rikers Island,BX98
-200,Bronx,Riverdale/North Riverdale/Fieldston,BX22
-201,Queens,Rockaway Park,QN10
-202,Manhattan,Roosevelt Island,MN31
-203,Queens,Rosedale,QN05
-204,Staten Island,Rossville/Woodrow,SI32
-205,Queens,Saint Albans,QN08
-206,Staten Island,Saint George/New Brighton,SI35
-207,Queens,Saint Michaels Cemetery/Woodside,QN63
-208,Bronx,Schuylerville/Edgewater Park,BX52
-209,Manhattan,Seaport,MN25
-210,Brooklyn,Sheepshead Bay,BK17
-211,Manhattan,SoHo,MN24
-212,Bronx,Soundview/Bruckner,BX55
-213,Bronx,Soundview/Castle Hill,BX09
-214,Staten Island,South Beach/Dongan Hills,SI36
-215,Queens,South Jamaica,QN01
-216,Queens,South Ozone Park,QN55
-217,Brooklyn,South Williamsburg,BK72
-218,Queens,Springfield Gardens North,QN02
-219,Queens,Springfield Gardens South,QN03
-220,Bronx,Spuyten Duyvil/Kingsbridge,BX29
-221,Staten Island,Stapleton,SI37
-222,Brooklyn,Starrett City,BK93
-223,Queens,Steinway,QN72
-224,Manhattan,Stuy Town/Peter Cooper Village,MN50
-225,Brooklyn,Stuyvesant Heights,BK35
-226,Queens,Sunnyside,QN31
-227,Brooklyn,Sunset Park East,BK34
-228,Brooklyn,Sunset Park West,BK32
-229,Manhattan,Sutton Place/Turtle Bay North,MN19
-230,Manhattan,Times Sq/Theatre District,MN17
-231,Manhattan,TriBeCa/Civic Center,MN24
-232,Manhattan,Two Bridges/Seward Park,MN27
-233,Manhattan,UN/Turtle Bay South,MN19
-234,Manhattan,Union Sq,MN13
-235,Bronx,University Heights/Morris Heights,BX36
-236,Manhattan,Upper East Side North,MN40
-237,Manhattan,Upper East Side South,MN40
-238,Manhattan,Upper West Side North,MN12
-239,Manhattan,Upper West Side South,MN12
-240,Bronx,Van Cortlandt Park,BX28
-241,Bronx,Van Cortlandt Village,BX28
-242,Bronx,Van Nest/Morris Park,BX37
-243,Manhattan,Washington Heights North,MN35
-244,Manhattan,Washington Heights South,MN36
-245,Staten Island,West Brighton,SI22
-246,Manhattan,West Chelsea/Hudson Yards,MN13
-247,Bronx,West Concourse,BX63
-248,Bronx,West Farms/Bronx River,BX08
-249,Manhattan,West Village,MN23
-250,Bronx,Westchester Village/Unionport,BX59
-251,Staten Island,Westerleigh,SI07
-252,Queens,Whitestone,QN49
-253,Queens,Willets Point,QN26
-254,Bronx,Williamsbridge/Olinville,BX44
-255,Brooklyn,Williamsburg (North Side),BK73
-256,Brooklyn,Williamsburg (South Side),BK73
-257,Brooklyn,Windsor Terrace,BK40
-258,Queens,Woodhaven,QN53
-259,Bronx,Woodlawn/Wakefield,BX62
-260,Queens,Woodside,QN63
-261,Manhattan,World Trade Center,MN25
-262,Manhattan,Yorkville East,MN32
-263,Manhattan,Yorkville West,MN32
-264,Unknown,Unknown,
-265,Unknown,Unknown,
+location_id,borough,zone,service_zone,ntacode
+1,EWR,Newark Airport,EWR,NJ01
+2,Queens,Jamaica Bay,Boro Zone,QN61
+3,Bronx,Allerton/Pelham Gardens,Boro Zone,BX31
+4,Manhattan,Alphabet City,Yellow Zone,MN22
+5,Staten Island,Arden Heights,Boro Zone,SI48
+6,Staten Island,Arrochar/Fort Wadsworth,Boro Zone,SI14
+7,Queens,Astoria,Boro Zone,QN70
+8,Queens,Astoria Park,Boro Zone,QN70
+9,Queens,Auburndale,Boro Zone,QN48
+10,Queens,Baisley Park,Boro Zone,QN76
+11,Brooklyn,Bath Beach,Boro Zone,BK27
+12,Manhattan,Battery Park,Yellow Zone,MN25
+13,Manhattan,Battery Park City,Yellow Zone,MN25
+14,Brooklyn,Bay Ridge,Boro Zone,BK31
+15,Queens,Bay Terrace/Fort Totten,Boro Zone,QN47
+16,Queens,Bayside,Boro Zone,QN46
+17,Brooklyn,Bedford,Boro Zone,BK75
+18,Bronx,Bedford Park,Boro Zone,BX05
+19,Queens,Bellerose,Boro Zone,QN43
+20,Bronx,Belmont,Boro Zone,BX06
+21,Brooklyn,Bensonhurst East,Boro Zone,BK29
+22,Brooklyn,Bensonhurst West,Boro Zone,BK28
+23,Staten Island,Bloomfield/Emerson Hill,Boro Zone,SI24
+24,Manhattan,Bloomingdale,Yellow Zone,MN12
+25,Brooklyn,Boerum Hill,Boro Zone,BK38
+26,Brooklyn,Borough Park,Boro Zone,BK88
+27,Queens,Breezy Point/Fort Tilden/Riis Beach,Boro Zone,QN10
+28,Queens,Briarwood/Jamaica Hills,Boro Zone,QN35
+29,Brooklyn,Brighton Beach,Boro Zone,BK19
+30,Queens,Broad Channel,Boro Zone,QN10
+31,Bronx,Bronx Park,Boro Zone,BX49
+32,Bronx,Bronxdale,Boro Zone,BX07
+33,Brooklyn,Brooklyn Heights,Boro Zone,BK09
+34,Brooklyn,Brooklyn Navy Yard,Boro Zone,BK69
+35,Brooklyn,Brownsville,Boro Zone,BK81
+36,Brooklyn,Bushwick North,Boro Zone,BK77
+37,Brooklyn,Bushwick South,Boro Zone,BK78
+38,Queens,Cambria Heights,Boro Zone,QN33
+39,Brooklyn,Canarsie,Boro Zone,BK50
+40,Brooklyn,Carroll Gardens,Boro Zone,BK33
+41,Manhattan,Central Harlem,Boro Zone,MN03
+42,Manhattan,Central Harlem North,Boro Zone,MN03
+43,Manhattan,Central Park,Yellow Zone,MN99
+44,Staten Island,Charleston/Tottenville,Boro Zone,SI11
+45,Manhattan,Chinatown,Yellow Zone,MN27
+46,Bronx,City Island,Boro Zone,BX10
+47,Bronx,Claremont/Bathgate,Boro Zone,BX01
+48,Manhattan,Clinton East,Yellow Zone,MN15
+49,Brooklyn,Clinton Hill,Boro Zone,BK69
+50,Manhattan,Clinton West,Yellow Zone,MN15
+51,Bronx,Co-Op City,Boro Zone,BX13
+52,Brooklyn,Cobble Hill,Boro Zone,BK09
+53,Queens,College Point,Boro Zone,QN23
+54,Brooklyn,Columbia Street,Boro Zone,BK33
+55,Brooklyn,Coney Island,Boro Zone,BK21
+56,Queens,Corona,Boro Zone,QN25
+57,Queens,Corona,Boro Zone,QN25
+58,Bronx,Country Club,Boro Zone,BX10
+59,Bronx,Crotona Park,Boro Zone,BX75
+60,Bronx,Crotona Park East,Boro Zone,BX75
+61,Brooklyn,Crown Heights North,Boro Zone,BK61
+62,Brooklyn,Crown Heights South,Boro Zone,BK63
+63,Brooklyn,Cypress Hills,Boro Zone,BK83
+64,Queens,Douglaston,Boro Zone,QN45
+65,Brooklyn,Downtown Brooklyn/MetroTech,Boro Zone,BK38
+66,Brooklyn,DUMBO/Vinegar Hill,Boro Zone,BK38
+67,Brooklyn,Dyker Heights,Boro Zone,BK30
+68,Manhattan,East Chelsea,Yellow Zone,MN13
+69,Bronx,East Concourse/Concourse Village,Boro Zone,BX14
+70,Queens,East Elmhurst,Boro Zone,QN27
+71,Brooklyn,East Flatbush/Farragut,Boro Zone,BK91
+72,Brooklyn,East Flatbush/Remsen Village,Boro Zone,BK96
+73,Queens,East Flushing,Boro Zone,QN52
+74,Manhattan,East Harlem North,Boro Zone,MN34
+75,Manhattan,East Harlem South,Boro Zone,MN33
+76,Brooklyn,East New York,Boro Zone,BK82
+77,Brooklyn,East New York/Pennsylvania Avenue,Boro Zone,BK85
+78,Bronx,East Tremont,Boro Zone,BX17
+79,Manhattan,East Village,Yellow Zone,MN22
+80,Brooklyn,East Williamsburg,Boro Zone,BK90
+81,Bronx,Eastchester,Boro Zone,BX03
+82,Queens,Elmhurst,Boro Zone,QN29
+83,Queens,Elmhurst/Maspeth,Boro Zone,QN50
+84,Staten Island,Eltingville/Annadale/Prince's Bay,Boro Zone,SI01
+85,Brooklyn,Erasmus,Boro Zone,BK95
+86,Queens,Far Rockaway,Boro Zone,QN15
+87,Manhattan,Financial District North,Yellow Zone,MN25
+88,Manhattan,Financial District South,Yellow Zone,MN25
+89,Brooklyn,Flatbush/Ditmas Park,Boro Zone,BK42
+90,Manhattan,Flatiron,Yellow Zone,MN13
+91,Brooklyn,Flatlands,Boro Zone,BK58
+92,Queens,Flushing,Boro Zone,QN22
+93,Queens,Flushing Meadows-Corona Park,Boro Zone,QN22
+94,Bronx,Fordham South,Boro Zone,BX40
+95,Queens,Forest Hills,Boro Zone,QN17
+96,Queens,Forest Park/Highland Park,Boro Zone,QN17
+97,Brooklyn,Fort Greene,Boro Zone,BK68
+98,Queens,Fresh Meadows,Boro Zone,QN41
+99,Staten Island,Freshkills Park,Boro Zone,SI99
+100,Manhattan,Garment District,Yellow Zone,MN13
+101,Queens,Glen Oaks,Boro Zone,QN44
+102,Queens,Glendale,Boro Zone,QN19
+103,Manhattan,Governor's Island/Ellis Island/Liberty Island,Yellow Zone,MN99
+104,Manhattan,Governor's Island/Ellis Island/Liberty Island,Yellow Zone,MN99
+105,Manhattan,Governor's Island/Ellis Island/Liberty Island,Yellow Zone,MN99
+106,Brooklyn,Gowanus,Boro Zone,BK37
+107,Manhattan,Gramercy,Yellow Zone,MN21
+108,Brooklyn,Gravesend,Boro Zone,BK26
+109,Staten Island,Great Kills,Boro Zone,SI54
+110,Staten Island,Great Kills Park,Boro Zone,SI54
+111,Brooklyn,Green-Wood Cemetery,Boro Zone,BK99
+112,Brooklyn,Greenpoint,Boro Zone,BK76
+113,Manhattan,Greenwich Village North,Yellow Zone,MN23
+114,Manhattan,Greenwich Village South,Yellow Zone,MN23
+115,Staten Island,Grymes Hill/Clifton,Boro Zone,SI08
+116,Manhattan,Hamilton Heights,Boro Zone,MN04
+117,Queens,Hammels/Arverne,Boro Zone,QN12
+118,Staten Island,Heartland Village/Todt Hill,Boro Zone,SI24
+119,Bronx,Highbridge,Boro Zone,BX26
+120,Manhattan,Highbridge Park,Boro Zone,MN36
+121,Queens,Hillcrest/Pomonok,Boro Zone,QN38
+122,Queens,Hollis,Boro Zone,QN07
+123,Brooklyn,Homecrest,Boro Zone,BK25
+124,Queens,Howard Beach,Boro Zone,QN57
+125,Manhattan,Hudson Sq,Yellow Zone,MN24
+126,Bronx,Hunts Point,Boro Zone,BX27
+127,Manhattan,Inwood,Boro Zone,MN01
+128,Manhattan,Inwood Hill Park,Boro Zone,MN01
+129,Queens,Jackson Heights,Boro Zone,QN28
+130,Queens,Jamaica,Boro Zone,QN61
+131,Queens,Jamaica Estates,Boro Zone,QN06
+132,Queens,JFK Airport,Airports,QN98
+133,Brooklyn,Kensington,Boro Zone,BK41
+134,Queens,Kew Gardens,Boro Zone,QN60
+135,Queens,Kew Gardens Hills,Boro Zone,QN37
+136,Bronx,Kingsbridge Heights,Boro Zone,BX30
+137,Manhattan,Kips Bay,Yellow Zone,MN20
+138,Queens,LaGuardia Airport,Airports,QN98
+139,Queens,Laurelton,Boro Zone,QN66
+140,Manhattan,Lenox Hill East,Yellow Zone,MN31
+141,Manhattan,Lenox Hill West,Yellow Zone,MN31
+142,Manhattan,Lincoln Square East,Yellow Zone,MN14
+143,Manhattan,Lincoln Square West,Yellow Zone,MN14
+144,Manhattan,Little Italy/NoLiTa,Yellow Zone,MN24
+145,Queens,Long Island City/Hunters Point,Boro Zone,QN68
+146,Queens,Long Island City/Queens Plaza,Boro Zone,QN68
+147,Bronx,Longwood,Boro Zone,BX33
+148,Manhattan,Lower East Side,Yellow Zone,MN28
+149,Brooklyn,Madison,Boro Zone,BK44
+150,Brooklyn,Manhattan Beach,Boro Zone,BK17
+151,Manhattan,Manhattan Valley,Yellow Zone,MN12
+152,Manhattan,Manhattanville,Boro Zone,MN06
+153,Manhattan,Marble Hill,Boro Zone,MN01
+154,Brooklyn,Marine Park/Floyd Bennett Field,Boro Zone,BK45
+155,Brooklyn,Marine Park/Mill Basin,Boro Zone,BK45
+156,Staten Island,Mariners Harbor,Boro Zone,SI12
+157,Queens,Maspeth,Boro Zone,QN30
+158,Manhattan,Meatpacking/West Village West,Yellow Zone,MN23
+159,Bronx,Melrose South,Boro Zone,BX34
+160,Queens,Middle Village,Boro Zone,QN21
+161,Manhattan,Midtown Center,Yellow Zone,MN17
+162,Manhattan,Midtown East,Yellow Zone,MN17
+163,Manhattan,Midtown North,Yellow Zone,MN17
+164,Manhattan,Midtown South,Yellow Zone,MN17
+165,Brooklyn,Midwood,Boro Zone,BK43
+166,Manhattan,Morningside Heights,Boro Zone,MN09
+167,Bronx,Morrisania/Melrose,Boro Zone,BX35
+168,Bronx,Mott Haven/Port Morris,Boro Zone,BX39
+169,Bronx,Mount Hope,Boro Zone,BX41
+170,Manhattan,Murray Hill,Yellow Zone,MN20
+171,Queens,Murray Hill-Queens,Boro Zone,QN51
+172,Staten Island,New Dorp/Midland Beach,Boro Zone,SI45
+173,Queens,North Corona,Boro Zone,QN26
+174,Bronx,Norwood,Boro Zone,BX43
+175,Queens,Oakland Gardens,Boro Zone,QN42
+176,Staten Island,Oakwood,Boro Zone,SI25
+177,Brooklyn,Ocean Hill,Boro Zone,BK79
+178,Brooklyn,Ocean Parkway South,Boro Zone,BK46
+179,Queens,Old Astoria,Boro Zone,QN71
+180,Queens,Ozone Park,Boro Zone,QN56
+181,Brooklyn,Park Slope,Boro Zone,BK37
+182,Bronx,Parkchester,Boro Zone,BX46
+183,Bronx,Pelham Bay,Boro Zone,BX10
+184,Bronx,Pelham Bay Park,Boro Zone,BX10
+185,Bronx,Pelham Parkway,Boro Zone,BX49
+186,Manhattan,Penn Station/Madison Sq West,Yellow Zone,MN17
+187,Staten Island,Port Richmond,Boro Zone,SI28
+188,Brooklyn,Prospect-Lefferts Gardens,Boro Zone,BK60
+189,Brooklyn,Prospect Heights,Boro Zone,BK64
+190,Brooklyn,Prospect Park,Boro Zone,BK99
+191,Queens,Queens Village,Boro Zone,QN34
+192,Queens,Queensboro Hill,Boro Zone,QN62
+193,Queens,Queensbridge/Ravenswood,Boro Zone,QN68
+194,Manhattan,Randalls Island,Yellow Zone,MN99
+195,Brooklyn,Red Hook,Boro Zone,BK33
+196,Queens,Rego Park,Boro Zone,QN18
+197,Queens,Richmond Hill,Boro Zone,QN54
+198,Queens,Ridgewood,Boro Zone,QN20
+199,Bronx,Rikers Island,Boro Zone,BX98
+200,Bronx,Riverdale/North Riverdale/Fieldston,Boro Zone,BX22
+201,Queens,Rockaway Park,Boro Zone,QN10
+202,Manhattan,Roosevelt Island,Boro Zone,MN31
+203,Queens,Rosedale,Boro Zone,QN05
+204,Staten Island,Rossville/Woodrow,Boro Zone,SI32
+205,Queens,Saint Albans,Boro Zone,QN08
+206,Staten Island,Saint George/New Brighton,Boro Zone,SI35
+207,Queens,Saint Michaels Cemetery/Woodside,Boro Zone,QN63
+208,Bronx,Schuylerville/Edgewater Park,Boro Zone,BX52
+209,Manhattan,Seaport,Yellow Zone,MN25
+210,Brooklyn,Sheepshead Bay,Boro Zone,BK17
+211,Manhattan,SoHo,Yellow Zone,MN24
+212,Bronx,Soundview/Bruckner,Boro Zone,BX55
+213,Bronx,Soundview/Castle Hill,Boro Zone,BX09
+214,Staten Island,South Beach/Dongan Hills,Boro Zone,SI36
+215,Queens,South Jamaica,Boro Zone,QN01
+216,Queens,South Ozone Park,Boro Zone,QN55
+217,Brooklyn,South Williamsburg,Boro Zone,BK72
+218,Queens,Springfield Gardens North,Boro Zone,QN02
+219,Queens,Springfield Gardens South,Boro Zone,QN03
+220,Bronx,Spuyten Duyvil/Kingsbridge,Boro Zone,BX29
+221,Staten Island,Stapleton,Boro Zone,SI37
+222,Brooklyn,Starrett City,Boro Zone,BK93
+223,Queens,Steinway,Boro Zone,QN72
+224,Manhattan,Stuy Town/Peter Cooper Village,Yellow Zone,MN50
+225,Brooklyn,Stuyvesant Heights,Boro Zone,BK35
+226,Queens,Sunnyside,Boro Zone,QN31
+227,Brooklyn,Sunset Park East,Boro Zone,BK34
+228,Brooklyn,Sunset Park West,Boro Zone,BK32
+229,Manhattan,Sutton Place/Turtle Bay North,Yellow Zone,MN19
+230,Manhattan,Times Sq/Theatre District,Yellow Zone,MN17
+231,Manhattan,TriBeCa/Civic Center,Yellow Zone,MN24
+232,Manhattan,Two Bridges/Seward Park,Yellow Zone,MN27
+233,Manhattan,UN/Turtle Bay South,Yellow Zone,MN19
+234,Manhattan,Union Sq,Yellow Zone,MN13
+235,Bronx,University Heights/Morris Heights,Boro Zone,BX36
+236,Manhattan,Upper East Side North,Yellow Zone,MN40
+237,Manhattan,Upper East Side South,Yellow Zone,MN40
+238,Manhattan,Upper West Side North,Yellow Zone,MN12
+239,Manhattan,Upper West Side South,Yellow Zone,MN12
+240,Bronx,Van Cortlandt Park,Boro Zone,BX28
+241,Bronx,Van Cortlandt Village,Boro Zone,BX28
+242,Bronx,Van Nest/Morris Park,Boro Zone,BX37
+243,Manhattan,Washington Heights North,Boro Zone,MN35
+244,Manhattan,Washington Heights South,Boro Zone,MN36
+245,Staten Island,West Brighton,Boro Zone,SI22
+246,Manhattan,West Chelsea/Hudson Yards,Yellow Zone,MN13
+247,Bronx,West Concourse,Boro Zone,BX63
+248,Bronx,West Farms/Bronx River,Boro Zone,BX08
+249,Manhattan,West Village,Yellow Zone,MN23
+250,Bronx,Westchester Village/Unionport,Boro Zone,BX59
+251,Staten Island,Westerleigh,Boro Zone,SI07
+252,Queens,Whitestone,Boro Zone,QN49
+253,Queens,Willets Point,Boro Zone,QN26
+254,Bronx,Williamsbridge/Olinville,Boro Zone,BX44
+255,Brooklyn,Williamsburg (North Side),Boro Zone,BK73
+256,Brooklyn,Williamsburg (South Side),Boro Zone,BK73
+257,Brooklyn,Windsor Terrace,Boro Zone,BK40
+258,Queens,Woodhaven,Boro Zone,QN53
+259,Bronx,Woodlawn/Wakefield,Boro Zone,BX62
+260,Queens,Woodside,Boro Zone,QN63
+261,Manhattan,World Trade Center,Yellow Zone,MN25
+262,Manhattan,Yorkville East,Yellow Zone,MN32
+263,Manhattan,Yorkville West,Yellow Zone,MN32
+264,Unknown,NV,N/A,
+265,Unknown,NA,N/A,

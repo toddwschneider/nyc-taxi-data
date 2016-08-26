@@ -11,7 +11,7 @@ done;
 
 # load 2015 Uber data into its own separate table due to schema difference
 unzip data/uber-raw-data-janjune-15.csv.zip -d data/
-cat data/taxi-zone-lookup-with-ntacode.csv | psql nyc-taxi-data -c "COPY uber_taxi_zone_lookups FROM stdin CSV HEADER;"
+cat data/taxi-zone-lookup-with-ntacode.csv | psql nyc-taxi-data -c "COPY taxi_zone_lookups FROM stdin CSV HEADER;"
 cat data/uber-raw-data-janjune-15.csv | psql nyc-taxi-data -c "COPY uber_trips_2015 (dispatching_base_num, pickup_datetime, affiliated_base_num, location_id) FROM stdin CSV HEADER;"
 psql nyc-taxi-data -c "CREATE INDEX index_uber_on_location ON uber_trips_2015 (location_id);"
 psql nyc-taxi-data -f add_ntacodes_to_uber_trips_2015.sql
