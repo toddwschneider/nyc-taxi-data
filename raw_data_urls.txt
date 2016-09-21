@@ -10,6 +10,12 @@ https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2015-09.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2015-10.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2015-11.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2015-12.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2016-01.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2016-02.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2016-03.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2016-04.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2016-05.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2016-06.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2013-08.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2013-09.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2013-10.csv
