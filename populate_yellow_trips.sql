@@ -3,7 +3,8 @@ SELECT
   id,
   ST_SetSRID(ST_MakePoint(pickup_longitude, pickup_latitude), 4326) as pickup,
   ST_SetSRID(ST_MakePoint(dropoff_longitude, dropoff_latitude), 4326) as dropoff
-FROM yellow_tripdata_staging;  
+FROM yellow_tripdata_staging
+WHERE pickup_longitude IS NOT NULL OR dropoff_longitude IS NOT NULL;
 
 CREATE INDEX idx_tmp_points_pickup ON tmp_points USING gist (pickup);
 CREATE INDEX idx_tmp_points_dropoff ON tmp_points USING gist (dropoff);
@@ -19,7 +20,7 @@ FROM tmp_points t, nyct2010 n
 WHERE ST_Within(t.dropoff, n.geom);
 
 INSERT INTO trips
-(cab_type_id, vendor_id, pickup_datetime, dropoff_datetime, passenger_count, trip_distance, pickup_longitude, pickup_latitude, rate_code_id, store_and_fwd_flag, dropoff_longitude, dropoff_latitude, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, pickup, dropoff, pickup_nyct2010_gid, dropoff_nyct2010_gid)
+(cab_type_id, vendor_id, pickup_datetime, dropoff_datetime, passenger_count, trip_distance, pickup_longitude, pickup_latitude, rate_code_id, store_and_fwd_flag, dropoff_longitude, dropoff_latitude, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, pickup, dropoff, pickup_nyct2010_gid, dropoff_nyct2010_gid, pickup_location_id, dropoff_location_id)
 SELECT
   cab_types.id,
   vendor_id,
@@ -50,7 +51,9 @@ SELECT
     THEN ST_SetSRID(ST_MakePoint(dropoff_longitude, dropoff_latitude), 4326)
   END,
   tmp_pickups.gid,
-  tmp_dropoffs.gid
+  tmp_dropoffs.gid,
+  pickup_location_id::integer,
+  dropoff_location_id::integer
 FROM
   yellow_tripdata_staging
     INNER JOIN cab_types ON cab_types.type = 'yellow'

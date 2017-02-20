@@ -23,11 +23,13 @@ CREATE TABLE green_tripdata_staging (
   total_amount varchar,
   payment_type varchar,
   trip_type varchar,
+  pickup_location_id varchar,
+  dropoff_location_id varchar,
   junk1 varchar,
   junk2 varchar
 );
 /*
-N.B. junk columns are there because green_tripdata file headers are
+N.B. junk columns are there because some tripdata file headers are
 inconsistent with the actual data, e.g. header says 20 or 21 columns per row,
 but data actually has 22 or 23 columns per row, which COPY doesn't like.
 junk1 and junk2 should always be null
@@ -53,7 +55,11 @@ CREATE TABLE yellow_tripdata_staging (
   tip_amount varchar,
   tolls_amount varchar,
   improvement_surcharge varchar,
-  total_amount varchar
+  total_amount varchar,
+  pickup_location_id varchar,
+  dropoff_location_id varchar,
+  junk1 varchar,
+  junk2 varchar
 );
 
 CREATE TABLE uber_trips_staging (
@@ -131,7 +137,9 @@ CREATE TABLE trips (
   payment_type varchar,
   trip_type integer,
   pickup_nyct2010_gid integer,
-  dropoff_nyct2010_gid integer
+  dropoff_nyct2010_gid integer,
+  pickup_location_id integer,
+  dropoff_location_id integer
 );
 
 SELECT AddGeometryColumn('trips', 'pickup', 4326, 'POINT', 2);
