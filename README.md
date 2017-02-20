@@ -41,8 +41,9 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 ## Schema
 
 - `trips` table contains all yellow and green taxi trips, plus Uber pickups from April 2014 through September 2014. Each trip has a `cab_type_id`, which references the `cab_types` table and refers to one of `yellow`, `green`, or `uber`. Each trip maps to a census tract for pickup and dropoff
-- `nyct2010` table contains NYC census tracts, plus a fake census tract for the Newark Airport. It also maps census tracts to NYC's official neighborhood tabulation areas
-- `uber_trips_2015` table contains Uber pickups from January 2015 through June, 2015. These are kept in a separate table because they don't have specific latitude/longitude coordinates, only location IDs. The location IDs are stored in the `taxi_zone_lookups` table, which also maps them (approximately) to neighborhood tabulation areas
+- `nyct2010` table contains NYC census tracts plus the Newark Airport. It also maps census tracts to NYC's official neighborhood tabulation areas
+- `taxi_zones` table contains the TLC's official taxi zone boundaries. Starting in July 2016, the TLC no longer provides pickup and dropoff coordinates. Instead, each trip comes with taxi zone pickup and dropoff location IDs
+- `uber_trips_2015` table contains Uber pickups from Jan–Jun, 2015. These are kept in a separate table because they don't have specific latitude/longitude coordinates, only location IDs. The location IDs are stored in the `taxi_zone_lookups` table, which also maps them (approximately) to neighborhood tabulation areas
 - `fhv_trips` table contains all FHV trip records made available by the TLC
 - `central_park_weather_observations` has summary weather data by date
 
@@ -58,7 +59,7 @@ These are bundled with the repository, so no need to download separately, but:
 ## Data issues encountered
 
 - Remove carriage returns and empty lines from TLC data before passing to Postgres `COPY` command
-- `green` taxi raw data files have extra columns with empty data, had to create dummy columns `junk1` and `junk2` to absorb them
+- Some raw data files have extra columns with empty data, had to create dummy columns `junk1` and `junk2` to absorb them
 - Two of the `yellow` taxi raw data files had a small number of rows containing extra columns. I discarded these rows
 - The official NYC neighborhood tabulation areas (NTAs) included in the shapefile are not exactly what I would have expected. Some of them are bizarrely large and contain more than one neighborhood, e.g. "Hudson Yards-Chelsea-Flat Iron-Union Square", while others are confusingly named, e.g. "North Side-South Side" for what I'd call "Williamsburg", and "Williamsburg" for what I'd call "South Williamsburg". In a few instances I modified NTA names, but I kept the NTA geographic definitions
 - The shapefile includes only NYC census tracts. Trips to New Jersey, Long Island, Westchester, and Connecticut are not mapped to census tracts, with the exception of the Newark Airport, for which I manually added a fake census tract
