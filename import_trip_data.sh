@@ -50,7 +50,7 @@ for filename in data/yellow*.csv; do
   if [ $year -lt 2015 ]; then
     schema=$yellow_schema_pre_2015
   elif [ $year -eq 2015 ] || ([ $year -eq 2016 ] && [ $month -lt 7 ]); then
-    schema=$yellow_schema_2015_2016_h2
+    schema=$yellow_schema_2015_2016_h1
   else
     schema=$yellow_schema_2016_h2
   fi
