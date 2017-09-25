@@ -75,6 +75,10 @@ There's a Ruby script in the `tlc_statistics/` folder to import data from the TL
 
 `ruby import_statistics_data.rb`
 
+## Taxi vs. Citi Bike comparison
+
+Code in support of the post ["When are Citi Bikes Faster than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/) lives in the `citibike_comparison/` folder
+
 ## Questions/issues/contact
 
 todd@toddwschneider.com, or open a GitHub issue
