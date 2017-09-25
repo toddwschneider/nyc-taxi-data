@@ -91,7 +91,9 @@ CREATE TABLE fhv_trips (
   id serial primary key,
   dispatching_base_num varchar,
   pickup_datetime timestamp without time zone,
-  location_id integer
+  dropoff_datetime timestamp without time zone,
+  pickup_location_id integer,
+  dropoff_location_id integer
 );
 
 CREATE TABLE fhv_bases (
