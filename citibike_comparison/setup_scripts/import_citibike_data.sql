@@ -1,0 +1,1 @@
+\copy taxi_citibike_trips (type, external_id, start_taxi_zone_id, end_taxi_zone_id, start_time, end_time, duration_in_seconds, date, day_of_week, hour_of_day) FROM 'data/citibike_trips_for_comparison.csv' CSV HEADER;
