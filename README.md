@@ -71,7 +71,7 @@ These are bundled with the repository, so no need to download separately, but:
 
 ## TLC summary statistics
 
-There's a Ruby script in the `tlc_statistics/` folder to import data from the TLC's [summary statistics reports](http://www.nyc.gov/html/tlc/html/about/statistics.shtml):
+There's a Ruby script in the `tlc_statistics/` folder to import data from the TLC's [summary statistics reports](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml):
 
 `ruby import_statistics_data.rb`
 
