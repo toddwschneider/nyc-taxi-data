@@ -25,3 +25,4 @@ psql nyc-taxi-data -c "UPDATE fhv_trips SET dispatching_base_num = trim(upper(di
 psql nyc-taxi-data -c "VACUUM FULL ANALYZE fhv_trips;"
 
 psql nyc-taxi-data -c "CREATE INDEX index_fhv_on_pickup_location ON fhv_trips (pickup_location_id);"
+psql nyc-taxi-data -c "CREATE INDEX index_fhv_on_pickup_datetime_brin ON fhv_trips USING BRIN (pickup_datetime) WITH (pages_per_range = 32);"

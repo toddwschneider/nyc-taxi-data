@@ -69,3 +69,5 @@ for filename in data/yellow*.csv; do
   psql nyc-taxi-data -f populate_yellow_trips.sql
   echo "`date`: loaded trips for ${filename}"
 done;
+
+psql nyc-taxi-data -c "CREATE INDEX idx_trips_on_pickup_datetime_brin ON trips USING BRIN (pickup_datetime) WITH (pages_per_range = 32);"
