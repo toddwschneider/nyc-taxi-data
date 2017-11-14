@@ -1,6 +1,6 @@
 # Taxi vs. Citi Bike Comparison Analysis
 
-Code in support of the post ["When are Citi Bikes Faster than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
+Code in support of the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
 
 ## Instructions
 
