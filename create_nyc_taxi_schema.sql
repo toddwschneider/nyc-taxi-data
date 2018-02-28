@@ -103,7 +103,6 @@ CREATE TABLE fhv_bases (
   dba_category varchar
 );
 
-CREATE UNIQUE INDEX index_fhv_bases_on_base_number ON fhv_bases (base_number);
 CREATE INDEX index_fhv_bases_on_dba_category ON fhv_bases (dba_category);
 
 CREATE TABLE cab_types (
