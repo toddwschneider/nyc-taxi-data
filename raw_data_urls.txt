@@ -28,6 +28,12 @@ https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-03.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-04.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-05.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-06.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-07.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-08.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-09.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-10.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-11.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2017-12.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2013-08.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2013-09.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2013-10.csv
@@ -75,6 +81,12 @@ https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-03.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-04.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-05.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-06.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-07.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-08.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-09.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-10.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-11.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2017-12.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2009-01.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2009-02.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2009-03.csv
@@ -177,3 +189,9 @@ https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-03.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-04.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-05.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-06.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-07.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-08.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-09.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-10.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-11.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-12.csv
