@@ -1,3 +1,15 @@
+/*
+Note:
+
+This script was originally written in November 2015 and has not been
+maintained as the dataset schema has evolved. In particular, the
+uber_trips_2015 table has been replaced by the fhv_trips table, and there
+might be other small breaking changes.
+
+See https://github.com/toddwschneider/nyc-taxi-data/tree/f7ebdd7c0b9604ef76959ef2f13dea7b1a990f67
+for the code/schema as it was at the time this script was written
+*/
+
 CREATE TABLE nyct2010_centroids AS
 SELECT
   gid,
@@ -385,7 +397,7 @@ SELECT AddGeometryColumn('custom_geometries', 'geom', 4326, 'POLYGON', 2);
 
 -- NB: these are approximate, but close enough
 INSERT INTO custom_geometries
-VALUES 
+VALUES
 ('Hamptons', ST_GeomFromText('POLYGON((-72.5614955 40.8257501,
                                        -72.5614955 40.9253558,
                                        -71.9083121 41.2297656,

@@ -62,29 +62,12 @@ CREATE TABLE yellow_tripdata_staging (
   junk2 varchar
 );
 
-CREATE TABLE uber_trips_staging (
+CREATE TABLE uber_trips_2014 (
   id serial primary key,
   pickup_datetime timestamp without time zone,
   pickup_latitude numeric,
   pickup_longitude numeric,
   base_code varchar
-);
-
-CREATE TABLE uber_trips_2015 (
-  id serial primary key,
-  dispatching_base_num varchar,
-  pickup_datetime timestamp without time zone,
-  affiliated_base_num varchar,
-  location_id integer,
-  nyct2010_ntacode varchar
-);
-
-CREATE TABLE taxi_zone_lookups (
-  location_id integer primary key,
-  borough varchar,
-  zone varchar,
-  service_zone varchar,
-  nyct2010_ntacode varchar
 );
 
 CREATE TABLE fhv_trips (
@@ -112,7 +95,6 @@ CREATE TABLE cab_types (
 
 INSERT INTO cab_types (type) SELECT 'yellow';
 INSERT INTO cab_types (type) SELECT 'green';
-INSERT INTO cab_types (type) SELECT 'uber';
 
 CREATE TABLE trips (
   id serial primary key,
