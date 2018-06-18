@@ -1,3 +1,13 @@
+# Note:
+#
+# This script was originally written in November 2015 and has not been
+# maintained as the dataset schema has evolved. In particular, the
+# uber_trips_2015 table has been replaced by the fhv_trips table, and there
+# might be other small breaking changes.
+#
+# See https://github.com/toddwschneider/nyc-taxi-data/tree/f7ebdd7c0b9604ef76959ef2f13dea7b1a990f67
+# for the code/schema as it was at the time this script was written
+
 library(ggplot2)
 library(ggmap)
 library(dplyr)
