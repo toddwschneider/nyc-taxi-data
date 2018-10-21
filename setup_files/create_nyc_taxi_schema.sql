@@ -2,31 +2,31 @@ CREATE EXTENSION postgis;
 
 CREATE TABLE green_tripdata_staging (
   id serial primary key,
-  vendor_id varchar,
-  lpep_pickup_datetime varchar,
-  lpep_dropoff_datetime varchar,
-  store_and_fwd_flag varchar,
-  rate_code_id varchar,
+  vendor_id text,
+  lpep_pickup_datetime text,
+  lpep_dropoff_datetime text,
+  store_and_fwd_flag text,
+  rate_code_id text,
   pickup_longitude numeric,
   pickup_latitude numeric,
   dropoff_longitude numeric,
   dropoff_latitude numeric,
-  passenger_count varchar,
-  trip_distance varchar,
-  fare_amount varchar,
-  extra varchar,
-  mta_tax varchar,
-  tip_amount varchar,
-  tolls_amount varchar,
-  ehail_fee varchar,
-  improvement_surcharge varchar,
-  total_amount varchar,
-  payment_type varchar,
-  trip_type varchar,
-  pickup_location_id varchar,
-  dropoff_location_id varchar,
-  junk1 varchar,
-  junk2 varchar
+  passenger_count text,
+  trip_distance text,
+  fare_amount text,
+  extra text,
+  mta_tax text,
+  tip_amount text,
+  tolls_amount text,
+  ehail_fee text,
+  improvement_surcharge text,
+  total_amount text,
+  payment_type text,
+  trip_type text,
+  pickup_location_id text,
+  dropoff_location_id text,
+  junk1 text,
+  junk2 text
 );
 /*
 N.B. junk columns are there because some tripdata file headers are
@@ -37,29 +37,29 @@ junk1 and junk2 should always be null
 
 CREATE TABLE yellow_tripdata_staging (
   id serial primary key,
-  vendor_id varchar,
-  tpep_pickup_datetime varchar,
-  tpep_dropoff_datetime varchar,
-  passenger_count varchar,
-  trip_distance varchar,
+  vendor_id text,
+  tpep_pickup_datetime text,
+  tpep_dropoff_datetime text,
+  passenger_count text,
+  trip_distance text,
   pickup_longitude numeric,
   pickup_latitude numeric,
-  rate_code_id varchar,
-  store_and_fwd_flag varchar,
+  rate_code_id text,
+  store_and_fwd_flag text,
   dropoff_longitude numeric,
   dropoff_latitude numeric,
-  payment_type varchar,
-  fare_amount varchar,
-  extra varchar,
-  mta_tax varchar,
-  tip_amount varchar,
-  tolls_amount varchar,
-  improvement_surcharge varchar,
-  total_amount varchar,
-  pickup_location_id varchar,
-  dropoff_location_id varchar,
-  junk1 varchar,
-  junk2 varchar
+  payment_type text,
+  fare_amount text,
+  extra text,
+  mta_tax text,
+  tip_amount text,
+  tolls_amount text,
+  improvement_surcharge text,
+  total_amount text,
+  pickup_location_id text,
+  dropoff_location_id text,
+  junk1 text,
+  junk2 text
 );
 
 CREATE TABLE uber_trips_2014 (
@@ -67,30 +67,40 @@ CREATE TABLE uber_trips_2014 (
   pickup_datetime timestamp without time zone,
   pickup_latitude numeric,
   pickup_longitude numeric,
-  base_code varchar
+  base_code text
+);
+
+CREATE TABLE fhv_trips_staging (
+  dispatching_base_num text,
+  pickup_datetime text,
+  dropoff_datetime text,
+  pickup_location_id text,
+  dropoff_location_id text,
+  shared_ride text
 );
 
 CREATE TABLE fhv_trips (
   id serial primary key,
-  dispatching_base_num varchar,
+  dispatching_base_num text,
   pickup_datetime timestamp without time zone,
   dropoff_datetime timestamp without time zone,
   pickup_location_id integer,
-  dropoff_location_id integer
+  dropoff_location_id integer,
+  shared_ride integer
 );
 
 CREATE TABLE fhv_bases (
-  base_number varchar primary key,
-  base_name varchar,
-  dba varchar,
-  dba_category varchar
+  base_number text primary key,
+  base_name text,
+  dba text,
+  dba_category text
 );
 
-CREATE INDEX index_fhv_bases_on_dba_category ON fhv_bases (dba_category);
+CREATE INDEX ON fhv_bases (dba_category);
 
 CREATE TABLE cab_types (
   id serial primary key,
-  type varchar
+  type text
 );
 
 INSERT INTO cab_types (type) SELECT 'yellow';
@@ -99,10 +109,10 @@ INSERT INTO cab_types (type) SELECT 'green';
 CREATE TABLE trips (
   id serial primary key,
   cab_type_id integer,
-  vendor_id varchar,
+  vendor_id text,
   pickup_datetime timestamp without time zone,
   dropoff_datetime timestamp without time zone,
-  store_and_fwd_flag char(1),
+  store_and_fwd_flag text,
   rate_code_id integer,
   pickup_longitude numeric,
   pickup_latitude numeric,
@@ -118,7 +128,7 @@ CREATE TABLE trips (
   ehail_fee numeric,
   improvement_surcharge numeric,
   total_amount numeric,
-  payment_type varchar,
+  payment_type text,
   trip_type integer,
   pickup_nyct2010_gid integer,
   dropoff_nyct2010_gid integer,
@@ -126,12 +136,9 @@ CREATE TABLE trips (
   dropoff_location_id integer
 );
 
-SELECT AddGeometryColumn('trips', 'pickup', 4326, 'POINT', 2);
-SELECT AddGeometryColumn('trips', 'dropoff', 4326, 'POINT', 2);
-
 CREATE TABLE central_park_weather_observations (
-  station_id varchar,
-  station_name varchar,
+  station_id text,
+  station_name text,
   date date,
   precipitation numeric,
   snow_depth numeric,
@@ -141,4 +148,4 @@ CREATE TABLE central_park_weather_observations (
   average_wind_speed numeric
 );
 
-CREATE UNIQUE INDEX index_weather_observations ON central_park_weather_observations (date);
+CREATE UNIQUE INDEX ON central_park_weather_observations (date);

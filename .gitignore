@@ -1,3 +1,9 @@
 .Rapp.history
 .DS_Store
 ggmapTemp.png
+data/fhv_tripdata*.csv
+data/green_tripdata*.csv
+data/yellow_tripdata*.csv
+data/uber-raw-data*.csv
+data/unaltered/*.csv
+tlc_statistics/*.csv
