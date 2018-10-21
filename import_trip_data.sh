@@ -21,10 +21,9 @@ yellow_schema_2016_h2="(vendor_id,tpep_pickup_datetime,tpep_dropoff_datetime,pas
 yellow_schema_2017_h1="(vendor_id,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,rate_code_id,store_and_fwd_flag,pickup_location_id,dropoff_location_id,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount)"
 
 # if 2010-02 and 2010-03 yellow files give errors about extra columns, remove offending rows:
-# sed -E '/(.*,){18,}/d' data/yellow_tripdata_2010-02.csv > data/yellow_tripdata_2010-02.csv
-# sed -E '/(.*,){18,}/d' data/yellow_tripdata_2010-03.csv > data/yellow_tripdata_2010-03.csv
+# ./remove_bad_rows.sh
 
-for filename in data/green*.csv; do
+for filename in data/green_tripdata*.csv; do
   [[ $filename =~ $year_month_regex ]]
   year=${BASH_REMATCH[1]}
   month=$((10#${BASH_REMATCH[2]}))
@@ -44,11 +43,11 @@ for filename in data/green*.csv; do
   echo "`date`: beginning load for ${filename}"
   sed $'s/\r$//' $filename | sed '/^$/d' | psql nyc-taxi-data -c "COPY green_tripdata_staging ${schema} FROM stdin CSV HEADER;"
   echo "`date`: finished raw load for ${filename}"
-  psql nyc-taxi-data -f populate_green_trips.sql
+  psql nyc-taxi-data -f setup_files/populate_green_trips.sql
   echo "`date`: loaded trips for ${filename}"
 done;
 
-for filename in data/yellow*.csv; do
+for filename in data/yellow_tripdata*.csv; do
   [[ $filename =~ $year_month_regex ]]
   year=${BASH_REMATCH[1]}
   month=$((10#${BASH_REMATCH[2]}))
@@ -66,8 +65,8 @@ for filename in data/yellow*.csv; do
   echo "`date`: beginning load for ${filename}"
   sed $'s/\r$//' $filename | sed '/^$/d' | psql nyc-taxi-data -c "COPY yellow_tripdata_staging ${schema} FROM stdin CSV HEADER;"
   echo "`date`: finished raw load for ${filename}"
-  psql nyc-taxi-data -f populate_yellow_trips.sql
+  psql nyc-taxi-data -f setup_files/populate_yellow_trips.sql
   echo "`date`: loaded trips for ${filename}"
 done;
 
-psql nyc-taxi-data -c "CREATE INDEX idx_trips_on_pickup_datetime_brin ON trips USING BRIN (pickup_datetime) WITH (pages_per_range = 32);"
+psql nyc-taxi-data -c "CREATE INDEX ON trips USING BRIN (pickup_datetime) WITH (pages_per_range = 32);"

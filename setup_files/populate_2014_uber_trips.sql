@@ -4,7 +4,7 @@ SELECT
   ST_SetSRID(ST_MakePoint(pickup_longitude, pickup_latitude), 4326) as pickup
 FROM uber_trips_2014;
 
-CREATE INDEX idx_tmp_points_pickup ON tmp_points USING gist (pickup);
+CREATE INDEX ON tmp_points USING gist (pickup);
 
 CREATE TABLE tmp_pickups AS
 SELECT t.id, z.locationid

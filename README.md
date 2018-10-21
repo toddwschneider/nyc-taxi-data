@@ -1,22 +1,32 @@
-# Unified New York City Taxi and For-Hire Vehicle Data
+# New York City Taxi and For-Hire Vehicle Data
 
-Code in support of this post: "[Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)"
+Code originally in support of this post: ["Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance"](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
 
-This repo provides scripts to download, process, and analyze data for over 1.8 billion taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, and uses [PostGIS](https://postgis.net/) for spatial calculations, in particular mapping latitude/longitude coordinates to census tracts.
+This repo provides scripts to download, process, and analyze data for billions of taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. Most of the [raw data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) comes from the NYC Taxi & Limousine Commission.
 
-Most of the [raw data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) comes from the NYC Taxi & Limousine Commission. The [2014 Uber data](https://github.com/fivethirtyeight/uber-tlc-foil-response) comes via FiveThirtyEight, who obtained it via a FOIL request. In August 2016, the TLC began providing for-hire vehicle trip records in addition to taxi trips.
+The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, and uses [PostGIS](https://postgis.net/) for spatial calculations.
+
+Statistics through June 30, 2018:
+
+- 2.07 billion total trips
+  - 1.55 billion taxi
+  - 519 million for-hire vehicle
+- 253 GB of raw data
+- Database takes up 347 GB on disk with minimal indexes
 
 ## Instructions
 
-Your mileage may vary, but on my MacBook Air, this process took about 3 days to complete. The unindexed database takes up over 300 GB on disk.
-
 ##### 1. Install [PostgreSQL](https://www.postgresql.org/download/) and [PostGIS](https://postgis.net/install)
 
-Both are available via [Homebrew](https://brew.sh/) on Mac OS X
+Both are available via [Homebrew](https://brew.sh/) on Mac
 
 ##### 2. Download raw data
 
-`./download_raw_data.sh`
+`./download_raw_data.sh && ./remove_bad_rows.sh`
+
+The `remove_bad_rows.sh` script fixes two particular files that have a few rows with too many columns. See the "data issues" section below for more.
+
+Note that the raw data is hundreds of GB, so it will take a while to download.
 
 ##### 3. Initialize database and set up schema
 
@@ -28,9 +38,11 @@ Both are available via [Homebrew](https://brew.sh/) on Mac OS X
 <br>
 `./import_fhv_trip_data.sh`
 
+The full import process takes ~36 hours on a 2013 MacBook Pro with 16 GB of RAM.
+
 ##### 5. Optional: download and import 2014 Uber data
 
-The FiveThirtyEight Uber dataset contains Uber trip records from Apr–Sep 2014. Uber and other FHV (Lyft, Juno, Via, etc.) data is available since Jan 2015 in the TLC's data.
+The [FiveThirtyEight Uber dataset](https://github.com/fivethirtyeight/uber-tlc-foil-response) contains Uber trip records from Apr–Sep 2014. Uber and other FHV (Lyft, Juno, Via, etc.) data is available since Jan 2015 in the TLC's data.
 
 `./download_raw_2014_uber_data.sh`
 <br>
@@ -43,7 +55,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 ## Schema
 
 - `trips` table contains all yellow and green taxi trips. Each trip has a `cab_type_id`, which references the `cab_types` table and refers to one of `yellow` or `green`
-- `fhv_trips` table contains all for-hire vehicle trip records made available by the TLC, including ride-hailing apps Uber, Lyft, Via, and Juno
+- `fhv_trips` table contains all for-hire vehicle trip records, including ride-hailing apps Uber, Lyft, Via, and Juno
 - `fhv_bases` maps `fhv_trips` to base names and "doing business as" labels, which include ride-hailing app names
 - `nyct2010` table contains NYC census tracts plus the Newark Airport. It also maps census tracts to NYC's official neighborhood tabulation areas
 - `taxi_zones` table contains the TLC's official taxi zone boundaries. Starting in July 2016, the TLC no longer provides pickup and dropoff coordinates. Instead, each trip comes with taxi zone pickup and dropoff location IDs

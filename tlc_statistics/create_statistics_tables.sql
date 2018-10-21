@@ -1,22 +1,24 @@
-DROP TABLE IF EXISTS yellow_monthly_reports CASCADE;
+DROP TABLE IF EXISTS tlc_monthly_reports CASCADE;
 DROP TABLE IF EXISTS fhv_weekly_reports CASCADE;
 
-CREATE TABLE yellow_monthly_reports (
+CREATE TABLE tlc_monthly_reports (
   month date,
+  license_class text,
   trips_per_day integer,
   farebox_per_day integer,
   unique_drivers integer,
-  unique_medallions integer,
-  medallions_per_day integer,
-  avg_days_medallions_on_road numeric,
-  avg_hours_per_day_per_medallion numeric,
+  unique_vehicles integer,
+  vehicles_per_day integer,
+  avg_days_vehicles_on_road numeric,
+  avg_hours_per_day_per_vehicle numeric,
   avg_days_drivers_on_road numeric,
   avg_hours_per_day_per_driver numeric,
   avg_minutes_per_trip numeric,
-  percent_trips_paid_with_credit_card numeric
+  percent_trips_paid_with_credit_card numeric,
+  trips_per_day_shared integer
 );
 
-CREATE UNIQUE INDEX index_yellow_monthly_uniq ON yellow_monthly_reports (month);
+CREATE UNIQUE INDEX ON tlc_monthly_reports (month, license_class);
 
 CREATE TABLE fhv_weekly_reports (
   base_number varchar,
@@ -32,8 +34,8 @@ CREATE TABLE fhv_weekly_reports (
   dba_category varchar
 );
 
-CREATE UNIQUE INDEX index_fhv_weekly_uniq ON fhv_weekly_reports (base_number, year, week_number);
-CREATE INDEX index_fhv_on_category ON fhv_weekly_reports (dba_category, pickup_end_date);
+CREATE UNIQUE INDEX ON fhv_weekly_reports (base_number, year, week_number);
+CREATE INDEX ON fhv_weekly_reports (dba_category, pickup_end_date);
 
 CREATE VIEW fhv_weekly_reports_intermediate_view AS
 SELECT

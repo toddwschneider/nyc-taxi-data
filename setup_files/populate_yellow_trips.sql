@@ -1,13 +1,13 @@
 CREATE TABLE tmp_points AS
 SELECT
   id,
-  ST_SetSRID(ST_MakePoint(pickup_longitude, pickup_latitude), 4326) as pickup,
-  ST_SetSRID(ST_MakePoint(dropoff_longitude, dropoff_latitude), 4326) as dropoff
+  ST_SetSRID(ST_MakePoint(pickup_longitude, pickup_latitude), 4326) AS pickup,
+  ST_SetSRID(ST_MakePoint(dropoff_longitude, dropoff_latitude), 4326) AS dropoff
 FROM yellow_tripdata_staging
 WHERE pickup_longitude IS NOT NULL OR dropoff_longitude IS NOT NULL;
 
-CREATE INDEX idx_tmp_points_pickup ON tmp_points USING gist (pickup);
-CREATE INDEX idx_tmp_points_dropoff ON tmp_points USING gist (dropoff);
+CREATE INDEX ON tmp_points USING gist (pickup);
+CREATE INDEX ON tmp_points USING gist (dropoff);
 
 CREATE TABLE tmp_pickups AS
 SELECT t.id, n.gid
@@ -20,7 +20,7 @@ FROM tmp_points t, nyct2010 n
 WHERE ST_Within(t.dropoff, n.geom);
 
 INSERT INTO trips
-(cab_type_id, vendor_id, pickup_datetime, dropoff_datetime, passenger_count, trip_distance, pickup_longitude, pickup_latitude, rate_code_id, store_and_fwd_flag, dropoff_longitude, dropoff_latitude, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, pickup, dropoff, pickup_nyct2010_gid, dropoff_nyct2010_gid, pickup_location_id, dropoff_location_id)
+(cab_type_id, vendor_id, pickup_datetime, dropoff_datetime, passenger_count, trip_distance, pickup_longitude, pickup_latitude, rate_code_id, store_and_fwd_flag, dropoff_longitude, dropoff_latitude, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, pickup_nyct2010_gid, dropoff_nyct2010_gid, pickup_location_id, dropoff_location_id)
 SELECT
   cab_types.id,
   vendor_id,
@@ -42,14 +42,6 @@ SELECT
   tolls_amount::numeric,
   improvement_surcharge::numeric,
   total_amount::numeric,
-  CASE
-    WHEN pickup_longitude != 0 AND pickup_latitude != 0
-    THEN ST_SetSRID(ST_MakePoint(pickup_longitude, pickup_latitude), 4326)
-  END,
-  CASE
-    WHEN dropoff_longitude != 0 AND dropoff_latitude != 0
-    THEN ST_SetSRID(ST_MakePoint(dropoff_longitude, dropoff_latitude), 4326)
-  END,
   tmp_pickups.gid,
   tmp_dropoffs.gid,
   COALESCE(pickup_location_id::integer, map_pickups.taxi_zone_location_id),
