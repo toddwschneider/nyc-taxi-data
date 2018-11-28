@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS tlc_monthly_reports CASCADE;
-DROP TABLE IF EXISTS fhv_weekly_reports CASCADE;
+DROP TABLE IF EXISTS tlc_monthly_reports;
+DROP TABLE IF EXISTS fhv_monthly_reports;
 
 CREATE TABLE tlc_monthly_reports (
   month date,
@@ -20,34 +20,18 @@ CREATE TABLE tlc_monthly_reports (
 
 CREATE UNIQUE INDEX ON tlc_monthly_reports (month, license_class);
 
-CREATE TABLE fhv_weekly_reports (
-  base_number varchar,
-  wave_number integer,
-  base_name varchar,
-  dba varchar,
+CREATE TABLE fhv_monthly_reports (
+  base_number text,
+  base_name text,
+  dba text,
   year integer,
-  week_number integer,
-  pickup_start_date date,
-  pickup_end_date date,
+  month integer,
+  month_name text,
   total_dispatched_trips integer,
+  total_dispatched_shared_trips integer,
   unique_dispatched_vehicles integer,
-  dba_category varchar
+  dba_category text
 );
 
-CREATE UNIQUE INDEX ON fhv_weekly_reports (base_number, year, week_number);
-CREATE INDEX ON fhv_weekly_reports (dba_category, pickup_end_date);
-
-CREATE VIEW fhv_weekly_reports_intermediate_view AS
-SELECT
-  *,
-  LAG(unique_dispatched_vehicles, 1) OVER (PARTITION BY base_number ORDER BY year, week_number) AS prev_uniq_vehicles,
-  LEAD(unique_dispatched_vehicles, 1) OVER (PARTITION BY base_number ORDER BY year, week_number) AS next_uniq_vehicles
-FROM fhv_weekly_reports;
-
-CREATE VIEW fhv_weekly_reports_view AS
-SELECT
-  *,
-  (unique_dispatched_vehicles > 5
-    AND unique_dispatched_vehicles::numeric / prev_uniq_vehicles > 1.4
-    AND unique_dispatched_vehicles::numeric / next_uniq_vehicles > 1.4) AS unreliable_vehicles_count
-FROM fhv_weekly_reports_intermediate_view;
+CREATE UNIQUE INDEX ON fhv_monthly_reports (base_number, year, month);
+CREATE INDEX ON fhv_monthly_reports (dba_category, year, month);

@@ -33,18 +33,16 @@ CSV.open("tlc_monthly_data.csv", "wb") do |csv|
   end
 end
 
-# FHV weekly data (includes Uber and Lyft)
-fhv_weekly_data_url = "http://data.cityofnewyork.us/api/views/2v9c-2k7f/rows.csv?accessType=DOWNLOAD"
-fhv = CSV.parse(RestClient.get(fhv_weekly_data_url))
+# FHV monthly data (includes Uber and Lyft)
+fhv_monthly_data_url = "http://data.cityofnewyork.us/api/views/2v9c-2k7f/rows.csv?accessType=DOWNLOAD"
+fhv = CSV.parse(RestClient.get(fhv_monthly_data_url))
 
-CSV.open("fhv_weekly_data.csv", "wb") do |csv|
+CSV.open("fhv_monthly_data.csv", "wb") do |csv|
   fhv.drop(1).each do |row|
-    dba_string = row[3]
+    dba_string = row[2].to_s.downcase
 
-    dba = if dba_string =~ /^uber/i
-      "uber"
-    elsif dba_string =~ /^lyft/i
-      "lyft"
+    dba = if %w(uber lyft via juno gett).include?(dba_string)
+      dba_string
     else
       "other"
     end
@@ -55,5 +53,5 @@ end
 
 # create tables and import data
 system(%{psql nyc-taxi-data -f create_statistics_tables.sql})
-system(%{cat tlc_monthly_data.csv | psql nyc-taxi-data -c "COPY tlc_monthly_reports FROM stdin CSV;"})
-system(%{cat fhv_weekly_data.csv | psql nyc-taxi-data -c "COPY fhv_weekly_reports FROM stdin CSV;"})
+system(%{sort -u tlc_monthly_data.csv | psql nyc-taxi-data -c "COPY tlc_monthly_reports FROM stdin CSV;"})
+system(%{cat fhv_monthly_data.csv | psql nyc-taxi-data -c "COPY fhv_monthly_reports FROM stdin CSV;"})
