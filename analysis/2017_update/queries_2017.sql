@@ -47,6 +47,13 @@ ORDER BY dba_category, date, pickup_location_id;
 \copy (SELECT * FROM daily_with_locations) TO 'data/daily_trips_with_location_id.csv' CSV HEADER;
 \copy (SELECT locationid, zone, borough FROM taxi_zones ORDER BY locationid) TO 'data/taxi_zones_simple.csv' CSV HEADER;
 
+CREATE TABLE taxi_zone_centroids AS
+SELECT
+  gid,
+  ST_Centroid(ST_Transform(geom, 2263)) AS geom
+FROM taxi_zones;
+ALTER TABLE taxi_zone_centroids ADD PRIMARY KEY (gid);
+
 /* see http://www.charlespetzold.com/etc/AvenuesOfManhattan/ */
 CREATE TABLE rotated_taxi_zones AS
 SELECT
