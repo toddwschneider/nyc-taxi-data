@@ -54,6 +54,12 @@ SELECT
 FROM taxi_zones;
 ALTER TABLE taxi_zone_centroids ADD PRIMARY KEY (gid);
 
+CREATE TABLE manhattan_centroid AS
+SELECT
+  ST_Centroid(ST_Union(ST_Transform(geom, 2263))) AS geom
+FROM taxi_zones
+WHERE borough = 'Manhattan';
+
 /* see http://www.charlespetzold.com/etc/AvenuesOfManhattan/ */
 CREATE TABLE rotated_taxi_zones AS
 SELECT
