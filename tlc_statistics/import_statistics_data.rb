@@ -9,8 +9,8 @@ def parse_number(string)
 end
 
 # TLC monthly reports
-tlc_monthly_data_url = "http://www.nyc.gov/html/tlc/downloads/csv/data_reports_monthly_indicators.csv"
-tlc_monthly_data = CSV.parse(RestClient.get(tlc_monthly_data_url))
+tlc_monthly_data_url = "https://www1.nyc.gov/assets/tlc/downloads/csv/data_reports_monthly_indicators.csv"
+tlc_monthly_data = CSV.parse(RestClient.get(tlc_monthly_data_url).body)
 
 CSV.open("tlc_monthly_data.csv", "wb") do |csv|
   tlc_monthly_data.drop(1).each do |row|
@@ -34,8 +34,8 @@ CSV.open("tlc_monthly_data.csv", "wb") do |csv|
 end
 
 # FHV monthly data (includes Uber and Lyft)
-fhv_monthly_data_url = "http://data.cityofnewyork.us/api/views/2v9c-2k7f/rows.csv?accessType=DOWNLOAD"
-fhv = CSV.parse(RestClient.get(fhv_monthly_data_url))
+fhv_monthly_data_url = "https://data.cityofnewyork.us/api/views/2v9c-2k7f/rows.csv?accessType=DOWNLOAD"
+fhv = CSV.parse(RestClient.get(fhv_monthly_data_url).body)
 
 CSV.open("fhv_monthly_data.csv", "wb") do |csv|
   fhv.drop(1).each do |row|

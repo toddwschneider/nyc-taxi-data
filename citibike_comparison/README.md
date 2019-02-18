@@ -1,6 +1,6 @@
 # Taxi vs. Citi Bike Comparison Analysis
 
-Code in support of the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
+Code in support of the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](https://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
 
 ## Instructions
 
@@ -50,7 +50,7 @@ Within the Citi Bike dataset, I removed trips by daily use customers, keeping on
 
 Within the taxi dataset, I restricted to trips that picked up and dropped off within areas served by the Citi Bike system, i.e. taxi trips where taking a Citi Bike would have been a viable option. Taxis can pick up or drop off anywhere, while Citi Bikes must be picked up and dropped off at one of the 600+ fixed station locations. The current [Citi Bike station map](https://member.citibikenyc.com/map/) covers Manhattan south of 110th Street, the stretch of Brooklyn from Greenpoint to Park Slope, and Long Island City in Queens.
 
-Starting in July 2016, perhaps owing to [privacy concerns](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#data-privacy-concerns), the TLC stopped providing precise latitude and longitude coordinates for every taxi trip. Instead, the TLC provides the pickup and drop off taxi zone for each trip, where the 263 zones—[see here](https://toddwschneider.carto.com/viz/2961a180-ffb1-11e6-a29f-0e233c30368f/public_map) for a map—roughly correspond to the neighborhoods of the city.
+Starting in July 2016, perhaps owing to [privacy concerns](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#data-privacy-concerns), the TLC stopped providing precise latitude and longitude coordinates for every taxi trip. Instead, the TLC provides the pickup and drop off taxi zone for each trip, where the 263 zones—[see here](https://toddwschneider.carto.com/viz/2961a180-ffb1-11e6-a29f-0e233c30368f/public_map) for a map—roughly correspond to the neighborhoods of the city.
 
 80% of all taxi trips in the filtered dataset started and ended within one of the 82 zones that includes a Citi Bike station. Of the 20% that did not, about a third involved LaGuardia or JFK airports. Harlem and Astoria were the Citi Bike-less residential neighborhoods with the most taxi trips, though they are part of Citi Bike's [expansion plans](https://www.dnainfo.com/new-york/20170727/astoria/citi-bike-stations-update-queens-cb1-bike-share-sept-oct-2017).
 

@@ -2,7 +2,7 @@
 
 Scripts in support of the 2017 update of this post:
 
-http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#update-2017
+https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#update-2017
 
 These scripts assume that you have the full taxi and FHV datasets loaded, but if you don't want to go through the time-consuming process of loading the whole dataset, the `data/` subfolder includes the following pre-computed files:
 

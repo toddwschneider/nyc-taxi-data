@@ -1,8 +1,8 @@
 # New York City Taxi and For-Hire Vehicle Data
 
-Code originally in support of this post: ["Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance"](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
+Code originally in support of this post: ["Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance"](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
 
-This repo provides scripts to download, process, and analyze data for billions of taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. Most of the [raw data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) comes from the NYC Taxi & Limousine Commission.
+This repo provides scripts to download, process, and analyze data for billions of taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. Most of the [raw data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) comes from the NYC Taxi & Limousine Commission.
 
 The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, and uses [PostGIS](https://postgis.net/) for spatial calculations.
 
@@ -65,7 +65,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 
 These are bundled with the repository, so no need to download separately, but:
 
-- Shapefile for NYC census tracts and neighborhood tabulation areas comes from [Bytes of the Big Apple](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml)
+- Shapefile for NYC census tracts and neighborhood tabulation areas comes from [Bytes of the Big Apple](https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page)
 - Shapefile for taxi zone locations comes from the TLC
 - Mapping of FHV base numbers to names comes from [the TLC](https://data.cityofnewyork.us/Transportation/FHV-Base-Aggregate-Report/2v9c-2k7f)
 - Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/)
@@ -86,17 +86,17 @@ Mark Litwintschik has used the taxi dataset to benchmark performance of many dif
 
 ## TLC summary statistics
 
-There's a Ruby script in the `tlc_statistics/` folder to import data from the TLC's [summary statistics reports](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml):
+There's a Ruby script in the `tlc_statistics/` folder to import data from the TLC's [summary statistics reports](https://www1.nyc.gov/site/tlc/about/aggregated-reports.page):
 
 `ruby import_statistics_data.rb`
 
 ## Taxi vs. Citi Bike comparison
 
-Code in support of the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/) lives in the `citibike_comparison/` folder
+Code in support of the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](https://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/) lives in the `citibike_comparison/` folder
 
 ## 2017 update
 
-Code in support of the [2017 update](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#update-2017) to the original post lives in the `analysis/2017_update/` folder
+Code in support of the [2017 update](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#update-2017) to the original post lives in the `analysis/2017_update/` folder
 
 ## Questions/issues/contact
 
