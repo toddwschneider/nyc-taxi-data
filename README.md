@@ -6,13 +6,13 @@ This repo provides scripts to download, process, and analyze data for billions o
 
 The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, and uses [PostGIS](https://postgis.net/) for spatial calculations.
 
-Statistics through June 30, 2018:
+Statistics through December 31, 2018:
 
-- 2.07 billion total trips
-  - 1.55 billion taxi
-  - 519 million for-hire vehicle
-- 253 GB of raw data
-- Database takes up 347 GB on disk with minimal indexes
+- 2.26 billion total trips
+  - 1.6 billion taxi
+  - 655 million for-hire vehicle
+- 267 GB of raw data
+- Database takes up 366 GB on disk with minimal indexes
 
 ## Instructions
 

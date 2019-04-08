@@ -76,7 +76,8 @@ CREATE TABLE fhv_trips_staging (
   dropoff_datetime text,
   pickup_location_id text,
   dropoff_location_id text,
-  shared_ride text
+  shared_ride text,
+  junk text
 );
 
 CREATE TABLE fhv_trips (
@@ -139,7 +140,7 @@ CREATE TABLE trips (
 CREATE TABLE central_park_weather_observations (
   station_id text,
   station_name text,
-  date date,
+  date date primary key,
   precipitation numeric,
   snow_depth numeric,
   snowfall numeric,
@@ -147,5 +148,3 @@ CREATE TABLE central_park_weather_observations (
   min_temperature numeric,
   average_wind_speed numeric
 );
-
-CREATE UNIQUE INDEX ON central_park_weather_observations (date);
