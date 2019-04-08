@@ -5,6 +5,7 @@ year_month_regex="tripdata_([0-9]{4})-([0-9]{2})"
 fhv_schema_pre_2017="(dispatching_base_num,pickup_datetime,pickup_location_id)"
 fhv_schema_2017_h1="(dispatching_base_num,pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id)"
 fhv_schema_2017_h2="(dispatching_base_num,pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id,shared_ride)"
+fhv_schema_2018="(pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id,shared_ride,dispatching_base_num,junk)"
 
 for filename in data/fhv_tripdata*.csv; do
   [[ $filename =~ $year_month_regex ]]
@@ -15,8 +16,10 @@ for filename in data/fhv_tripdata*.csv; do
     schema=$fhv_schema_pre_2017
   elif [ $year -eq 2017 ] && [ $month -lt 7 ]; then
     schema=$fhv_schema_2017_h1
-  else
+  elif [ $year -eq 2017 ]; then
     schema=$fhv_schema_2017_h2
+  else
+    schema=$fhv_schema_2018
   fi
 
   echo "`date`: beginning load for ${filename}"
