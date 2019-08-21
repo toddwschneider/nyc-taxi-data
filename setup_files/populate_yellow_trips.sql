@@ -20,7 +20,7 @@ FROM tmp_points t, nyct2010 n
 WHERE ST_Within(t.dropoff, n.geom);
 
 INSERT INTO trips
-(cab_type_id, vendor_id, pickup_datetime, dropoff_datetime, passenger_count, trip_distance, pickup_longitude, pickup_latitude, rate_code_id, store_and_fwd_flag, dropoff_longitude, dropoff_latitude, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, pickup_nyct2010_gid, dropoff_nyct2010_gid, pickup_location_id, dropoff_location_id)
+(cab_type_id, vendor_id, pickup_datetime, dropoff_datetime, passenger_count, trip_distance, pickup_longitude, pickup_latitude, rate_code_id, store_and_fwd_flag, dropoff_longitude, dropoff_latitude, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, congestion_surcharge, total_amount, pickup_nyct2010_gid, dropoff_nyct2010_gid, pickup_location_id, dropoff_location_id)
 SELECT
   cab_types.id,
   vendor_id,
@@ -41,6 +41,7 @@ SELECT
   tip_amount::numeric,
   tolls_amount::numeric,
   improvement_surcharge::numeric,
+  congestion_surcharge::numeric,
   total_amount::numeric,
   tmp_pickups.gid,
   tmp_dropoffs.gid,
