@@ -25,6 +25,7 @@ CREATE TABLE green_tripdata_staging (
   trip_type text,
   pickup_location_id text,
   dropoff_location_id text,
+  congestion_surcharge text,
   junk1 text,
   junk2 text
 );
@@ -58,6 +59,7 @@ CREATE TABLE yellow_tripdata_staging (
   total_amount text,
   pickup_location_id text,
   dropoff_location_id text,
+  congestion_surcharge text,
   junk1 text,
   junk2 text
 );
@@ -128,6 +130,7 @@ CREATE TABLE trips (
   tolls_amount numeric,
   ehail_fee numeric,
   improvement_surcharge numeric,
+  congestion_surcharge numeric,
   total_amount numeric,
   payment_type text,
   trip_type integer,
