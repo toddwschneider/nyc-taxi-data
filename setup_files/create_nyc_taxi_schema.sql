@@ -79,6 +79,7 @@ CREATE TABLE fhv_trips_staging (
   pickup_location_id text,
   dropoff_location_id text,
   shared_ride text,
+  hvfhs_license_num text,
   junk text
 );
 
@@ -89,7 +90,8 @@ CREATE TABLE fhv_trips (
   dropoff_datetime timestamp without time zone,
   pickup_location_id integer,
   dropoff_location_id integer,
-  shared_ride integer
+  shared_ride integer,
+  hvfhs_license_num text
 );
 
 CREATE TABLE fhv_bases (
@@ -101,13 +103,23 @@ CREATE TABLE fhv_bases (
 
 CREATE INDEX ON fhv_bases (dba_category);
 
+CREATE TABLE hvfhs_licenses (
+  license_number text primary key,
+  company_name text
+);
+
+INSERT INTO hvfhs_licenses
+VALUES ('HV0002', 'juno'),
+       ('HV0003', 'uber'),
+       ('HV0004', 'via'),
+       ('HV0005', 'lyft');
+
 CREATE TABLE cab_types (
   id serial primary key,
   type text
 );
 
-INSERT INTO cab_types (type) SELECT 'yellow';
-INSERT INTO cab_types (type) SELECT 'green';
+INSERT INTO cab_types (type) VALUES ('yellow'), ('green');
 
 CREATE TABLE trips (
   id serial primary key,
