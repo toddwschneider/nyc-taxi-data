@@ -2,6 +2,7 @@
 .DS_Store
 ggmapTemp.png
 data/fhv_tripdata*.csv
+data/fhvhv_tripdata*.csv
 data/green_tripdata*.csv
 data/yellow_tripdata*.csv
 data/uber-raw-data*.csv
