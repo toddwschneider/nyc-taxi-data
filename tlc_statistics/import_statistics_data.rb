@@ -9,7 +9,7 @@ def parse_number(string)
 end
 
 # TLC monthly reports
-tlc_monthly_data_url = "https://www1.nyc.gov/assets/tlc/downloads/csv/data_reports_monthly_indicators.csv"
+tlc_monthly_data_url = "https://www1.nyc.gov/assets/tlc/downloads/csv/data_reports_monthly.csv"
 tlc_monthly_data = CSV.parse(RestClient.get(tlc_monthly_data_url).body)
 
 CSV.open("tlc_monthly_data.csv", "wb") do |csv|
