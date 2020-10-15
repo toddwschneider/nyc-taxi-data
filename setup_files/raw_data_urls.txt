@@ -62,6 +62,8 @@ https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2020-01.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2020-02.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2020-03.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2020-04.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2020-05.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/fhv_tripdata_2020-06.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhvhv_tripdata_2019-02.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhvhv_tripdata_2019-03.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/fhvhv_tripdata_2019-04.csv
