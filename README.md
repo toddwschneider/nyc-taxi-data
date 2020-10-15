@@ -1,6 +1,6 @@
 # New York City Taxi and For-Hire Vehicle Data
 
-Code originally in support of this post: ["Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance"](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
+Code originally in support of this post: [Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
 
 This repo provides scripts to download, process, and analyze data for billions of taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. Most of the [raw data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) comes from the NYC Taxi & Limousine Commission.
 
@@ -94,7 +94,7 @@ These summary statistics are used in the [NYC Taxi & Ridehailing Stats](https://
 
 ## Taxi vs. Citi Bike comparison
 
-Code in support of the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](https://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/) lives in the `citibike_comparison/` folder
+Code in support of the post [When Are Citi Bikes Faster Than Taxis in New York City?](https://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/) lives in the `citibike_comparison/` folder
 
 ## 2017 update
 
