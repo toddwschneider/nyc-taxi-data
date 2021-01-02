@@ -1,7 +1,7 @@
 CREATE EXTENSION postgis;
 
 CREATE TABLE green_tripdata_staging (
-  id serial primary key,
+  id bigserial primary key,
   vendor_id text,
   lpep_pickup_datetime text,
   lpep_dropoff_datetime text,
@@ -37,7 +37,7 @@ junk1 and junk2 should always be null
 */
 
 CREATE TABLE yellow_tripdata_staging (
-  id serial primary key,
+  id bigserial primary key,
   vendor_id text,
   tpep_pickup_datetime text,
   tpep_dropoff_datetime text,
@@ -84,7 +84,7 @@ CREATE TABLE fhv_trips_staging (
 );
 
 CREATE TABLE fhv_trips (
-  id serial primary key,
+  id bigserial primary key,
   dispatching_base_num text,
   pickup_datetime timestamp without time zone,
   dropoff_datetime timestamp without time zone,
@@ -122,7 +122,7 @@ CREATE TABLE cab_types (
 INSERT INTO cab_types (type) VALUES ('yellow'), ('green');
 
 CREATE TABLE trips (
-  id serial primary key,
+  id bigserial primary key,
   cab_type_id integer,
   vendor_id text,
   pickup_datetime timestamp without time zone,
