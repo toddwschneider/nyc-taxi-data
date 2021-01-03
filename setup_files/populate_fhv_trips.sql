@@ -13,3 +13,4 @@ SELECT
 FROM fhv_trips_staging;
 
 TRUNCATE TABLE fhv_trips_staging;
+VACUUM ANALYZE fhv_trips_staging;

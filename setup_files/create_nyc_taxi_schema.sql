@@ -28,6 +28,10 @@ CREATE TABLE green_tripdata_staging (
   congestion_surcharge text,
   junk1 text,
   junk2 text
+)
+WITH (
+  autovacuum_enabled = false,
+  toast.autovacuum_enabled = false
 );
 /*
 N.B. junk columns are there because some tripdata file headers are
@@ -62,6 +66,10 @@ CREATE TABLE yellow_tripdata_staging (
   congestion_surcharge text,
   junk1 text,
   junk2 text
+)
+WITH (
+  autovacuum_enabled = false,
+  toast.autovacuum_enabled = false
 );
 
 CREATE TABLE uber_trips_2014 (
@@ -81,6 +89,10 @@ CREATE TABLE fhv_trips_staging (
   shared_ride text,
   hvfhs_license_num text,
   junk text
+)
+WITH (
+  autovacuum_enabled = false,
+  toast.autovacuum_enabled = false
 );
 
 CREATE TABLE fhv_trips (
