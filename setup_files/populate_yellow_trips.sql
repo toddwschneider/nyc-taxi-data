@@ -56,6 +56,8 @@ FROM
       LEFT JOIN nyct2010_taxi_zones_mapping map_dropoffs ON tmp_dropoffs.gid = map_dropoffs.nyct2010_gid;
 
 TRUNCATE TABLE yellow_tripdata_staging;
+VACUUM ANALYZE yellow_tripdata_staging;
+
 DROP TABLE tmp_points;
 DROP TABLE tmp_pickups;
 DROP TABLE tmp_dropoffs;

@@ -1,7 +1,7 @@
 CREATE EXTENSION postgis;
 
 CREATE TABLE green_tripdata_staging (
-  id serial primary key,
+  id bigserial primary key,
   vendor_id text,
   lpep_pickup_datetime text,
   lpep_dropoff_datetime text,
@@ -28,6 +28,10 @@ CREATE TABLE green_tripdata_staging (
   congestion_surcharge text,
   junk1 text,
   junk2 text
+)
+WITH (
+  autovacuum_enabled = false,
+  toast.autovacuum_enabled = false
 );
 /*
 N.B. junk columns are there because some tripdata file headers are
@@ -37,7 +41,7 @@ junk1 and junk2 should always be null
 */
 
 CREATE TABLE yellow_tripdata_staging (
-  id serial primary key,
+  id bigserial primary key,
   vendor_id text,
   tpep_pickup_datetime text,
   tpep_dropoff_datetime text,
@@ -62,6 +66,10 @@ CREATE TABLE yellow_tripdata_staging (
   congestion_surcharge text,
   junk1 text,
   junk2 text
+)
+WITH (
+  autovacuum_enabled = false,
+  toast.autovacuum_enabled = false
 );
 
 CREATE TABLE uber_trips_2014 (
@@ -81,10 +89,14 @@ CREATE TABLE fhv_trips_staging (
   shared_ride text,
   hvfhs_license_num text,
   junk text
+)
+WITH (
+  autovacuum_enabled = false,
+  toast.autovacuum_enabled = false
 );
 
 CREATE TABLE fhv_trips (
-  id serial primary key,
+  id bigserial primary key,
   dispatching_base_num text,
   pickup_datetime timestamp without time zone,
   dropoff_datetime timestamp without time zone,
@@ -122,7 +134,7 @@ CREATE TABLE cab_types (
 INSERT INTO cab_types (type) VALUES ('yellow'), ('green');
 
 CREATE TABLE trips (
-  id serial primary key,
+  id bigserial primary key,
   cab_type_id integer,
   vendor_id text,
   pickup_datetime timestamp without time zone,

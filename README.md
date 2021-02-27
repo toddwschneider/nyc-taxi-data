@@ -6,13 +6,13 @@ This repo provides scripts to download, process, and analyze data for billions o
 
 The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, and uses [PostGIS](https://postgis.net/) for spatial calculations.
 
-Statistics through December 31, 2019:
+Statistics through December 31, 2020:
 
-- 2.63 billion total trips
-  - 1.69 billion taxi
-  - 935 million for-hire vehicle
-- 291 GB of raw data
-- Database takes up 391 GB on disk with minimal indexes
+- 2.8 billion total trips
+  - 1.7 billion taxi
+  - 1.1 billion for-hire vehicle
+- 306 GB of raw data
+- Database takes up ~420 GB on disk with minimal indexes
 
 ## Instructions
 
@@ -68,7 +68,7 @@ These are bundled with the repository, so no need to download separately, but:
 - Shapefile for NYC census tracts and neighborhood tabulation areas comes from [Bytes of the Big Apple](https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page)
 - Shapefile for taxi zone locations comes from the TLC
 - Mapping of FHV base numbers to names comes from [the TLC](https://data.cityofnewyork.us/Transportation/FHV-Base-Aggregate-Report/2v9c-2k7f)
-- Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/)
+- Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USW00094728/detail)
 
 ## Data issues encountered
 
