@@ -326,3 +326,10 @@ https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-09.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-10.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-11.csv
 https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-12.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-02.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-03.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-04.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-05.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-06.csv
+https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-07.csv
