@@ -7,6 +7,7 @@ fhv_schema_2017_h1="(dispatching_base_num,pickup_datetime,dropoff_datetime,picku
 fhv_schema_2017_h2="(dispatching_base_num,pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id,shared_ride)"
 fhv_schema_2018="(pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id,shared_ride,dispatching_base_num,junk)"
 fhv_schema_2019="(dispatching_base_num,pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id,shared_ride)"
+fhv_schema_2020="(dispatching_base_num,pickup_datetime,dropoff_datetime,pickup_location_id,dropoff_location_id,shared_ride,affiliated_base_num)"
 
 for filename in data/fhv_tripdata*.csv; do
   [[ $filename =~ $year_month_regex ]]
@@ -21,8 +22,10 @@ for filename in data/fhv_tripdata*.csv; do
     fhv_schema=$fhv_schema_2017_h2
   elif [ $year -eq 2018 ]; then
     fhv_schema=$fhv_schema_2018
-  else
+  elif [ $year -eq 2019 ]; then
     fhv_schema=$fhv_schema_2019
+  else
+    fhv_schema=$fhv_schema_2020
   fi
 
   echo "`date`: beginning load for ${filename}"

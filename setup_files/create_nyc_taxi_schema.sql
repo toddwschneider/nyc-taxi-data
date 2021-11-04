@@ -88,7 +88,8 @@ CREATE TABLE fhv_trips_staging (
   dropoff_location_id text,
   shared_ride text,
   hvfhs_license_num text,
-  junk text
+  junk text,
+  affiliated_base_num text
 )
 WITH (
   autovacuum_enabled = false,
@@ -103,7 +104,8 @@ CREATE TABLE fhv_trips (
   pickup_location_id integer,
   dropoff_location_id integer,
   shared_ride integer,
-  hvfhs_license_num text
+  hvfhs_license_num text,
+  affiliated_base_num text
 );
 
 CREATE TABLE fhv_bases (
