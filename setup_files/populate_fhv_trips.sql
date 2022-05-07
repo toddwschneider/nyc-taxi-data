@@ -6,9 +6,9 @@ SELECT
   trim(upper(dispatching_base_num)),
   pickup_datetime::timestamp without time zone,
   dropoff_datetime::timestamp without time zone,
-  NULLIF(pickup_location_id, '')::integer,
-  NULLIF(dropoff_location_id, '')::integer,
-  NULLIF(shared_ride, '')::integer,
+  NULLIF(pickup_location_id, '')::numeric::integer,
+  NULLIF(dropoff_location_id, '')::numeric::integer,
+  NULLIF(shared_ride, '')::numeric::integer,
   trim(upper(hvfhs_license_num)),
   trim(upper(affiliated_base_num))
 FROM fhv_trips_staging;
