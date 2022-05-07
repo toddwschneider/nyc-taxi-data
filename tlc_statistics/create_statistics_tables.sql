@@ -52,7 +52,7 @@ SELECT
   farebox_per_day::numeric / (trips_per_day * avg_minutes_per_trip) AS farebox_per_minute,
   farebox_per_day::numeric / vehicles_per_day AS farebox_per_vehicle_daily,
   farebox_per_day::numeric / (unique_drivers * avg_days_drivers_on_road / extract(day FROM month)) AS farebox_per_driver_daily
-  FROM tlc_monthly_reports
+FROM tlc_monthly_reports
 ORDER BY license_class, month;
 
 CREATE OR REPLACE VIEW fhv_monthly_reports_dashboard AS
