@@ -24,36 +24,35 @@ INSERT INTO trips
 SELECT
   cab_types.id,
   vendor_id,
-  tpep_pickup_datetime::timestamp,
-  tpep_dropoff_datetime::timestamp,
-  passenger_count::numeric::integer,
-  trip_distance::numeric,
+  tpep_pickup_datetime,
+  tpep_dropoff_datetime,
+  passenger_count,
+  trip_distance,
   CASE WHEN pickup_longitude != 0 THEN pickup_longitude END,
   CASE WHEN pickup_latitude != 0 THEN pickup_latitude END,
-  rate_code_id::numeric::integer,
-  store_and_fwd_flag,
+  rate_code_id,
+  CASE upper(store_and_fwd_flag) WHEN 'Y' THEN true WHEN 'N' THEN false END,
   CASE WHEN dropoff_longitude != 0 THEN dropoff_longitude END,
   CASE WHEN dropoff_latitude != 0 THEN dropoff_latitude END,
   payment_type,
-  fare_amount::numeric,
-  extra::numeric,
-  mta_tax::numeric,
-  tip_amount::numeric,
-  tolls_amount::numeric,
-  improvement_surcharge::numeric,
-  congestion_surcharge::numeric,
-  total_amount::numeric,
+  fare_amount,
+  extra,
+  mta_tax,
+  tip_amount,
+  tolls_amount,
+  improvement_surcharge,
+  congestion_surcharge,
+  total_amount,
   tmp_pickups.gid,
   tmp_dropoffs.gid,
-  COALESCE(pickup_location_id::integer, map_pickups.taxi_zone_location_id),
-  COALESCE(dropoff_location_id::integer, map_dropoffs.taxi_zone_location_id)
-FROM
-  yellow_tripdata_staging
-    INNER JOIN cab_types ON cab_types.type = 'yellow'
-    LEFT JOIN tmp_pickups ON yellow_tripdata_staging.id = tmp_pickups.id
-      LEFT JOIN nyct2010_taxi_zones_mapping map_pickups ON tmp_pickups.gid = map_pickups.nyct2010_gid
-    LEFT JOIN tmp_dropoffs ON yellow_tripdata_staging.id = tmp_dropoffs.id
-      LEFT JOIN nyct2010_taxi_zones_mapping map_dropoffs ON tmp_dropoffs.gid = map_dropoffs.nyct2010_gid;
+  coalesce(pickup_location_id, map_pickups.taxi_zone_location_id),
+  coalesce(dropoff_location_id, map_dropoffs.taxi_zone_location_id)
+FROM yellow_tripdata_staging
+  INNER JOIN cab_types ON cab_types.type = 'yellow'
+  LEFT JOIN tmp_pickups ON yellow_tripdata_staging.id = tmp_pickups.id
+    LEFT JOIN nyct2010_taxi_zones_mapping map_pickups ON tmp_pickups.gid = map_pickups.nyct2010_gid
+  LEFT JOIN tmp_dropoffs ON yellow_tripdata_staging.id = tmp_dropoffs.id
+    LEFT JOIN nyct2010_taxi_zones_mapping map_dropoffs ON tmp_dropoffs.gid = map_dropoffs.nyct2010_gid;
 
 TRUNCATE TABLE yellow_tripdata_staging;
 VACUUM ANALYZE yellow_tripdata_staging;

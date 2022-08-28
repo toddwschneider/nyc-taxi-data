@@ -1,1 +1,1 @@
-cat setup_files/raw_data_urls.txt | xargs -n 1 -P 6 wget -c -P data/
+wget -i setup_files/raw_data_urls.txt -P data/ -w 5

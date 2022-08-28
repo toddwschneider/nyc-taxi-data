@@ -1,6 +1,7 @@
 .Rapp.history
 .DS_Store
 ggmapTemp.png
+data/*tripdata*.parquet
 data/fhv_tripdata*.csv
 data/fhvhv_tripdata*.csv
 data/green_tripdata*.csv
