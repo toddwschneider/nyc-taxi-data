@@ -1,56 +1,57 @@
 # New York City Taxi and For-Hire Vehicle Data
 
-Code originally in support of this post: [Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
+Scripts to download, process, and analyze data from 3+ billion taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. There are separate sets of scripts for storing data in either a [PostgreSQL](https://www.postgresql.org/) or [ClickHouse](https://clickhouse.com/) database.
 
-This repo provides scripts to download, process, and analyze data for billions of taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. Most of the [raw data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) comes from the NYC Taxi & Limousine Commission.
+Most of the [raw data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) comes from the NYC Taxi & Limousine Commission.
 
-The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, and uses [PostGIS](https://postgis.net/) for spatial calculations.
+The repo was created originally in support of this post: [Analyzing 1.1 Billion NYC Taxi and Uber Trips, with a Vengeance](https://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/)
 
-Statistics through February 28, 2022:
+## TLC 2022 Parquet Format Update
 
-- 3.0 billion total trips
-  - 1.7 billion taxi
-  - 1.3 billion for-hire vehicle
-- 342 GB of raw data
-- Minimal indexes add ~100 GB of disk usage
+The TLC changed the raw data format from CSV to Apache Parquet in May 2022, including a full replacement of all historical files. This repo is now updated to handle the Parquet files in one of two ways:
 
-## Instructions
+1. The "old" Postgres-based code still works, by adding an intermediate step that converts each Parquet file into a CSV before using the Postgres `COPY` command
+2. A [separate set of scripts](https://github.com/toddwschneider/nyc-taxi-data/tree/master/clickhouse) loads the Parquet files directly into a ClickHouse database
+
+As part of the May 2022 update, the TLC added several new columns to the High Volume For-Hire Vehicle (Uber, Lyft) trip files, including information about passenger fares, driver pay, and time spent waiting for passengers. These new fields are available back to February 2019.
+
+This repo no longer works with the old CSV files provided by the TLC. Those files are no longer available to download from the TLC's website, but if you happen to have them lying around and want to use this repo, you should look at [this older verion of the code](https://github.com/toddwschneider/nyc-taxi-data/tree/2e805ab0f1bf362f890c6b6f227526c575f73b67) from before the Parquet file format change.
+
+## ClickHouse Instructions
+
+See the [`clickhouse`](https://github.com/toddwschneider/nyc-taxi-data/tree/master/clickhouse) directory
+
+## PostgreSQL Instructions
 
 ##### 1. Install [PostgreSQL](https://www.postgresql.org/download/) and [PostGIS](https://postgis.net/install)
 
 Both are available via [Homebrew](https://brew.sh/) on Mac
 
-##### 2. Download raw data
+##### 2. Install [R](https://www.r-project.org/)
 
-`./download_raw_data.sh && ./remove_bad_rows.sh`
+From [CRAN](https://cloud.r-project.org/)
 
-The `remove_bad_rows.sh` script fixes two particular files that have a few rows with too many columns. See the "data issues" section below for more.
+Note that R used to be optional for this repo, but is required starting with the 2022 file format change. The scripts use R to convert Parquet files to CSV before loading into Postgres. There are other ways to convert from Parquet to CSV that wouldn't require R, but I found that R's `arrow` package was faster than some of the other CLI tools I tried
 
-Note that the raw data is hundreds of GB, so it will take a while to download.
+##### 3. Download raw data
 
-##### 3. Initialize database and set up schema
+`./download_raw_data.sh`
+
+##### 4. Initialize database and set up schema
 
 `./initialize_database.sh`
 
-##### 4. Import taxi and FHV data
+##### 5. Import taxi and FHV data
 
-`./import_trip_data.sh`
+`./import_yellow_taxi_trip_data.sh`
 <br>
-`./import_fhv_trip_data.sh`
-
-The full import process takes ~36 hours on a 2013 MacBook Pro with 16 GB of RAM.
-
-##### 5. Optional: download and import 2014 Uber data
-
-The [FiveThirtyEight Uber dataset](https://github.com/fivethirtyeight/uber-tlc-foil-response) contains Uber trip records from Apr–Sep 2014. Uber and other FHV (Lyft, Juno, Via, etc.) data is available since Jan 2015 in the TLC's data.
-
-`./download_raw_2014_uber_data.sh`
+`./import_green_taxi_trip_data.sh`
 <br>
-`./import_2014_uber_trip_data.sh`
+`./import_fhv_taxi_trip_data.sh`
+<br>
+`./import_fhvhv_trip_data.sh`
 
-##### 6. Analysis
-
-Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are in the `analysis/` folder, or you can do your own!
+Note that the full import process might take several hours or possibly even over a day depending on computing power
 
 ## Schema
 
@@ -70,19 +71,9 @@ These are bundled with the repository, so no need to download separately, but:
 - Mapping of FHV base numbers to names comes from [the TLC](https://data.cityofnewyork.us/Transportation/FHV-Base-Aggregate-Report/2v9c-2k7f)
 - Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USW00094728/detail)
 
-## Data issues encountered
+## See Also
 
-- Remove carriage returns and empty lines from TLC data before passing to Postgres `COPY` command
-- Some raw data files have extra columns with empty data, had to create dummy columns `junk1` and `junk2` to absorb them
-- Two of the `yellow` taxi raw data files had a small number of rows containing extra columns. I discarded these rows
-- The official NYC neighborhood tabulation areas (NTAs) included in the census tracts shapefile are not exactly what I would have expected. Some of them are bizarrely large and contain more than one neighborhood, e.g. "Hudson Yards-Chelsea-Flat Iron-Union Square", while others are confusingly named, e.g. "North Side-South Side" for what I'd call "Williamsburg", and "Williamsburg" for what I'd call "South Williamsburg". In a few instances I modified NTA names, but I kept the NTA geographic definitions
-- The shapefile includes only NYC census tracts. Trips to New Jersey, Long Island, Westchester, and Connecticut are not mapped to census tracts, with the exception of the Newark Airport
-
-## Why not use BigQuery or Redshift?
-
-[Google BigQuery](https://cloud.google.com/bigquery/) and [Amazon Redshift](https://aws.amazon.com/redshift/) would probably provide significant performance improvements over PostgreSQL. A lot of the data is already available on BigQuery, but in scattered tables, and each trip has only latitude and longitude coordinates, not census tracts and neighborhoods. PostGIS seemed like the easiest way to map coordinates to census tracts. Once the mapping is complete, it might make sense to load the data back into BigQuery or Redshift to make the analysis faster. Note that BigQuery and Redshift cost some amount of money, while PostgreSQL and PostGIS are free.
-
-Mark Litwintschik has used the taxi dataset to benchmark performance of many different technology stacks, his summary is here: http://tech.marksblogg.com/benchmarks.html
+Mark Litwintschik has used the taxi dataset to benchmark performance of many different technology stacks, including PostgreSQL and ClickHouse. His summary is here: http://tech.marksblogg.com/benchmarks.html
 
 ## TLC summary statistics
 
