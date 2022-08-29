@@ -11,23 +11,23 @@ From [CRAN](https://cloud.r-project.org/)
 
 R is required to fix some of the historical Parquet files that are missing column types
 
-##### 2. Download raw data
+##### 3. Download raw data
 
 From the project root directory, not the `clickhouse/` directory
 
 `./download_raw_data.sh`
 
-##### 3. Fix some Parquet files
+##### 4. Fix some Parquet files
 
 Some of the older Parquet files provided by the TLC have a few columns with `null` types, which causes errors when trying to import into ClickHouse. The following script iterates through all of the downloaded files and set types if necessary
 
 `./clickhouse/fix_parquet_files.sh`
 
-##### 4. Initialize database and set up schema
+##### 5. Initialize database and set up schema
 
 `./clickhouse/initialize_clickhouse_database.sh`
 
-##### 5. Import taxi and FHV data
+##### 6. Import taxi and FHV data
 
 `./clickhouse/load_fhv_trips.sh`
 <br>
