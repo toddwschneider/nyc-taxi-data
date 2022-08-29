@@ -73,7 +73,7 @@ These are bundled with the repository, so no need to download separately, but:
 
 ## See Also
 
-Mark Litwintschik has used the taxi dataset to benchmark performance of many different technology stacks, including PostgreSQL and ClickHouse. His summary is here: http://tech.marksblogg.com/benchmarks.html
+Mark Litwintschik has used the taxi dataset to benchmark performance of many different technology stacks, including PostgreSQL and ClickHouse. His summary is here: https://tech.marksblogg.com/benchmarks.html
 
 ## TLC summary statistics
 
