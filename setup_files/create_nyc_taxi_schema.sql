@@ -180,6 +180,7 @@ CREATE TABLE trips (
   ehail_fee numeric,
   improvement_surcharge numeric,
   congestion_surcharge numeric,
+  airport_fee numeric,
   total_amount numeric,
   payment_type integer,
   trip_type integer,
