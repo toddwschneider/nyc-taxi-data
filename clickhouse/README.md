@@ -33,6 +33,22 @@ Some of the older Parquet files provided by the TLC have a few columns with `nul
 <br>
 `./clickhouse/load_taxi_trips.sh`
 
+##### 7. Optional: backfill yellow taxi data from 2009 and 2010
+
+The yellow taxi Parquet files from 2009 and 2010 have columns for lat/lon coordinates instead of location IDs, which makes them incompatible with the ClickHouse `taxi_trips` table schema. As a workaround, there is a Parquet file available from a Requester Pays AWS S3 bucket here:
+
+https://nyc-yellow-taxi-tripdata-backfill.s3.amazonaws.com/backfill_yellow_tripdata_2009_2010.parquet
+
+It contains all yellow taxi trips from 2009 and 2010, including location IDs instead of lat/lon coordinates. [See here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ObjectsinRequesterPaysBuckets.html) for info on how to download files from Requester Pays S3 buckets. Once you've downloaded the file to the `data/` directory, run:
+
+`./clickhouse/backfill_yellow_taxi_2009_2010_trips.sh`
+
+If you want to reproduce the backfill file on your own instead of downloading from S3, you can:
+
+1. Run the Postgres-based scripts in this repo to load 2009/2010 yellow taxi files, which will map coordinates to location IDs
+2. Generate a Parquet file of 2009/2010 trips that conforms to the same schema as the 2011- files
+3. Import the Parquet file into ClickHouse using the `backfill_yellow_taxi_2009_2010_trips.sh` script
+
 ## Schema
 
 - `fhv_trips` table contains all for-hire vehicle trip records, including ride-hailing apps Uber, Lyft, Via, and Juno

@@ -9,8 +9,8 @@ for filename in ../data/yellow_tripdata*.parquet; do
   [[ $filename =~ $year_month_regex ]]
   year=${BASH_REMATCH[1]}
 
-  # pre-2011 yellow taxi files still have lat/lon instead of location IDs
-  # not supported yet in clickhouse scripts, use postgres if you need yellow trips from 2009/2010
+  # Yellow taxi files from 2009 and 2010 still have lat/lon instead of location IDs
+  # See the ClickHouse README for more info
   if [ $year -lt 2011 ]; then
     continue
   fi
