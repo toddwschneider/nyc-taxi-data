@@ -28,7 +28,7 @@ SELECT
   driver_pay,
   CASE trim(upper(shared_request_flag)) WHEN 'Y' THEN true WHEN 'N' THEN false END,
   CASE trim(upper(shared_match_flag)) WHEN 'Y' THEN true WHEN 'N' THEN false END,
-  CASE trim(upper(access_a_ride_flag)) WHEN 'Y' THEN true WHEN 'N' THEN false END,
+  CASE trim(upper(access_a_ride_flag)) WHEN 'Y' THEN true WHEN 'N' THEN false WHEN '' THEN false END,
   CASE trim(upper(wav_request_flag)) WHEN 'Y' THEN true WHEN 'N' THEN false END,
   CASE trim(upper(wav_match_flag)) WHEN 'Y' THEN true WHEN 'N' THEN false END,
   legacy_shared_ride_flag::integer,

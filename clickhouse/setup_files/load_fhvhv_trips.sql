@@ -56,7 +56,7 @@ SELECT
   driver_pay,
   multiIf(shared_request_flag = 'Y', true, shared_request_flag = 'N', false, null),
   multiIf(shared_match_flag = 'Y', true, shared_match_flag = 'N', false, null),
-  multiIf(access_a_ride_flag = 'Y', true, access_a_ride_flag = 'N', false, null),
+  multiIf(access_a_ride_flag = 'Y', true, access_a_ride_flag IN ('N', ' '), false, null),
   multiIf(wav_request_flag = 'Y', true, wav_request_flag = 'N', false, null),
   multiIf(wav_match_flag = 'Y', true, wav_match_flag = 'N', false, null),
   splitByChar('/', {filename:String})[-1]

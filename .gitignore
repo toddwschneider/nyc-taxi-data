@@ -8,4 +8,5 @@ data/green_tripdata*.csv
 data/yellow_tripdata*.csv
 data/uber-raw-data*.csv
 data/unaltered/*.csv
+data/loaded/
 tlc_statistics/*.csv

@@ -26,6 +26,7 @@ for (f in file_names) {
 
   trips %>%
     mutate(
+      improvement_surcharge = as.numeric(improvement_surcharge),
       congestion_surcharge = as.numeric(congestion_surcharge),
       airport_fee = as.numeric(airport_fee)
     ) %>%
