@@ -69,3 +69,56 @@ CREATE TABLE taxi_trips (
 )
 ENGINE = MergeTree
 ORDER BY (car_type, pickup_datetime);
+
+CREATE OR REPLACE VIEW fhv_trips_expanded AS
+SELECT
+  *,
+  trip_time / 60 AS trip_minutes,
+  trip_miles / trip_time * 3600 AS mph,
+  (
+    trip_miles >= 0.2
+    AND trip_miles < 50
+    AND trip_time >= 60
+    AND trip_time < 60 * 60 * 3
+    AND mph >= 1
+    AND mph < 100
+    AND base_passenger_fare >= 2
+    AND base_passenger_fare < 2000
+    AND driver_pay >= 1
+    AND driver_pay < 2000
+  ) AS reasonable_time_distance_fare,
+  (
+    shared_request = false
+    AND access_a_ride = false
+    AND wav_request = false
+  ) AS solo_non_special_request,
+  coalesce(tolls, 0) +
+    coalesce(black_car_fund, 0) +
+    coalesce(sales_tax, 0) +
+    coalesce(congestion_surcharge, 0) +
+    coalesce(airport_fee, 0) AS extra_charges
+FROM fhv_trips;
+
+CREATE OR REPLACE VIEW taxi_trips_expanded AS
+SELECT
+  *,
+  (dropoff_datetime - pickup_datetime) / 60 AS trip_minutes,
+  trip_distance / (dropoff_datetime - pickup_datetime) * 3600 AS mph,
+  (
+    trip_distance >= 0.2
+    AND trip_distance < 50
+    AND trip_minutes >= 1
+    AND trip_minutes < 180
+    AND mph >= 1
+    AND mph < 100
+    AND fare_amount >= 2
+    AND fare_amount < 2000
+  ) AS reasonable_time_distance_fare,
+  coalesce(extra, 0) +
+    coalesce(mta_tax, 0) +
+    coalesce(tolls_amount, 0) +
+    coalesce(improvement_surcharge, 0) +
+    coalesce(congestion_surcharge, 0) +
+    coalesce(airport_fee, 0) +
+    coalesce(ehail_fee, 0) AS extra_charges
+FROM taxi_trips;
