@@ -10,3 +10,4 @@ data/uber-raw-data*.csv
 data/unaltered/*.csv
 data/loaded/
 tlc_statistics/*.csv
+analysis/2023/fare_comparison_json/

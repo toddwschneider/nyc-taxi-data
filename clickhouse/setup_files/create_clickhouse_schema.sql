@@ -113,6 +113,8 @@ SELECT
     AND mph < 100
     AND fare_amount >= 2
     AND fare_amount < 2000
+    AND total_amount >= 2
+    AND total_amount < 2000
   ) AS reasonable_time_distance_fare,
   coalesce(extra, 0) +
     coalesce(mta_tax, 0) +
