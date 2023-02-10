@@ -1,4 +1,4 @@
-# code to generate json data files used at https://toddwschneider.com/dashboards/nyc-taxi-uber-lyft-fare-and-driver-pay-comparison/?from=161&to=255&since=2019
+# code to generate json data files used at https://toddwschneider.com/dashboards/nyc-taxi-uber-lyft-fare-and-driver-pay-comparison/
 
 # assumes full dataset has been loaded into ClickHouse database, see clickhouse/README for more info
 
