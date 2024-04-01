@@ -1,7 +1,8 @@
 CREATE TABLE taxi_zones (
   location_id UInt16,
   zone String,
-  borough String
+  borough String,
+  subregion String
 )
 ENGINE = MergeTree
 ORDER BY (location_id);
@@ -77,9 +78,9 @@ SELECT
   trip_miles / trip_time * 3600 AS mph,
   (
     trip_miles >= 0.2
-    AND trip_miles < 50
+    AND trip_miles < 100
     AND trip_time >= 60
-    AND trip_time < 60 * 60 * 3
+    AND trip_time < 60 * 60 * 4
     AND mph >= 1
     AND mph < 100
     AND base_passenger_fare >= 2
@@ -106,9 +107,9 @@ SELECT
   trip_distance / (dropoff_datetime - pickup_datetime) * 3600 AS mph,
   (
     trip_distance >= 0.2
-    AND trip_distance < 50
+    AND trip_distance < 100
     AND trip_minutes >= 1
-    AND trip_minutes < 180
+    AND trip_minutes < 240
     AND mph >= 1
     AND mph < 100
     AND fare_amount >= 2

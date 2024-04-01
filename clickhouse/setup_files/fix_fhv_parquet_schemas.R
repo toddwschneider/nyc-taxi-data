@@ -18,11 +18,11 @@ for (f in file_names) {
     unlist()
 
   if (all(col_types != "vctrs_unspecified")) {
-    print(glue("No changes needed"))
+    print("No changes needed")
     next
   }
 
-  print(glue("Updating schema…"))
+  print("Updating schema…")
 
   trips %>%
     mutate(SR_Flag = as.numeric(SR_Flag)) %>%

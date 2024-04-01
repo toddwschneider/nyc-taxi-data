@@ -13,16 +13,22 @@ for (f in file_names) {
 
   trips = read_parquet(f)
 
+  if ("Airport_fee" %in% names(trips)) {
+    print("Renaming airport_fee to lowercase")
+    trips = rename(trips, airport_fee = Airport_fee)
+    write_parquet(trips, f)
+  }
+
   col_types = trips %>%
     purrr::map(class) %>%
     unlist()
 
   if (all(col_types != "vctrs_unspecified")) {
-    print(glue("No changes needed"))
+    print("No changes needed")
     next
   }
 
-  print(glue("Updating schema…"))
+  print("Updating schema…")
 
   trips %>%
     mutate(

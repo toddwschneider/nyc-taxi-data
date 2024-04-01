@@ -24,7 +24,7 @@ monthly_trip_counts = query("
     company AS car_type,
     pickup_location_id,
     dropoff_location_id,
-    date_trunc('month', pickup_datetime) AS month,
+    date_trunc('month', pickup_datetime)::date AS month,
     count(*)::int AS trips
   FROM fhv_trips_expanded
   WHERE company IN ('uber', 'lyft')
@@ -41,7 +41,7 @@ monthly_trip_counts = query("
     'taxi' AS car_type,
     pickup_location_id,
     dropoff_location_id,
-    date_trunc('month', pickup_datetime) AS month,
+    date_trunc('month', pickup_datetime)::date AS month,
     count(*)::int AS trips
   FROM taxi_trips
   WHERE pickup_datetime >= '2009-01-01'
@@ -54,7 +54,7 @@ monthly_fare_data = query("
     company AS car_type,
     pickup_location_id,
     dropoff_location_id,
-    date_trunc('month', pickup_datetime) AS month,
+    date_trunc('month', pickup_datetime)::date AS month,
     count(*)::int AS non_outlier_trips,
     avg(base_passenger_fare + extra_charges + tips) AS mean_cost,
     avg(driver_pay) AS mean_driver_pay,
@@ -75,7 +75,7 @@ monthly_fare_data = query("
     'taxi' AS car_type,
     pickup_location_id,
     dropoff_location_id,
-    date_trunc('month', pickup_datetime) AS month,
+    date_trunc('month', pickup_datetime)::date AS month,
     count(*)::int AS non_outlier_trips,
     /* assume 15% tip for cash fares with 0 tip (payment_type = 2) */
     avg(total_amount * (CASE WHEN payment_type = 2 AND tip_amount = 0 THEN 1.15 ELSE 1 END)) AS mean_cost,
