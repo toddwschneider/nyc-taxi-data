@@ -1,20 +1,31 @@
-#!/usr/bin/env Rscript --vanilla
+#!/usr/bin/env Rscript
 
-required_packages = c(
+# Set environment variable so that arrow is built with all optional features (including gzip support)
+Sys.setenv(LIBARROW_MINIMAL = "false")
+
+required_packages <- c(
   "arrow",
   "tidyverse",
   "glue"
 )
 
-installed_packages = rownames(installed.packages())
-packages_to_install = required_packages[!(required_packages %in% installed_packages)]
+# Define a personal library path
+user_lib <- "~/R/libs"
+if (!dir.exists(user_lib)) {
+  dir.create(user_lib, recursive = TRUE)
+}
 
-if (length(packages_to_install) > 0) {
-  install.packages(
-    packages_to_install,
-    dependencies = TRUE,
-    repos = "https://cloud.r-project.org",
-  )
+# Prepend the user_lib to the existing .libPaths
+.libPaths(c(user_lib, .libPaths()))
+
+# Loop over each required package and install only if it isn't already available.
+for(pkg in required_packages) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg,
+                     dependencies = TRUE,
+                     repos = "https://cloud.r-project.org",
+                     lib = user_lib)
+  }
 }
 
 suppressPackageStartupMessages({
@@ -23,15 +34,15 @@ suppressPackageStartupMessages({
   library(glue)
 })
 
-command_args = commandArgs(trailingOnly = TRUE)
-parquet_filename = command_args[1]
-csv_filename = str_replace(parquet_filename, ".parquet$", ".csv")
+command_args <- commandArgs(trailingOnly = TRUE)
+parquet_filename <- command_args[1]
+csv_filename <- str_replace(parquet_filename, ".parquet$", ".csv")
 
-rows = read_parquet(parquet_filename)
+rows <- read_parquet(parquet_filename)
 print(glue("Read {nrow(rows)} rows from {parquet_filename}"))
 
 if ("__index_level_0__" %in% names(rows)) {
-  rows = select(rows, -"__index_level_0__")
+  rows <- select(rows, -"__index_level_0__")
 }
 
 write_csv(rows, csv_filename, na = "")

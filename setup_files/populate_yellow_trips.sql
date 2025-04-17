@@ -71,7 +71,7 @@ FROM yellow_tripdata_staging
 
 TRUNCATE TABLE yellow_tripdata_staging;
 VACUUM ANALYZE yellow_tripdata_staging;
-
 DROP TABLE tmp_points;
 DROP TABLE tmp_pickups;
 DROP TABLE tmp_dropoffs;
+
