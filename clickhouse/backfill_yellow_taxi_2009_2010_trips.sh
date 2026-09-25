@@ -7,5 +7,5 @@ cd "$parent_path"
 filename="../data/backfill_yellow_tripdata_2009_2010.parquet"
 
 echo "`date`: beginning load for ${filename}"
-clickhouse-client --database=nyc_tlc_data --param_filename=${filename} --queries-file=setup_files/load_yellow_trips.sql --progress
+clickhouse client --database=nyc_tlc_data --param_filename="${filename}" --queries-file=setup_files/load_yellow_trips.sql --progress < "${filename}"
 echo "`date`: done load for ${filename}"
