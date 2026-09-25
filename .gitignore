@@ -11,3 +11,4 @@ data/unaltered/*.csv
 data/loaded/
 tlc_statistics/*.csv
 analysis/2023/fare_comparison_json/
+analysis/2023/surge_map_json/
