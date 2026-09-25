@@ -9,6 +9,7 @@ CREATE TABLE green_tripdata_staging (
   rate_code_id integer,
   dropoff_location_id integer,
   congestion_surcharge numeric,
+  cbd_congestion_fee numeric,
   passenger_count integer,
   trip_distance numeric,
   fare_amount numeric,
@@ -52,6 +53,7 @@ CREATE TABLE yellow_tripdata_staging (
   improvement_surcharge numeric,
   total_amount numeric,
   congestion_surcharge numeric,
+  cbd_congestion_fee numeric,
   airport_fee numeric
 )
 WITH (
@@ -84,6 +86,7 @@ CREATE TABLE fhv_trips_staging (
   black_car_fund numeric,
   sales_tax numeric,
   congestion_surcharge numeric,
+  cbd_congestion_fee numeric,
   airport_fee numeric,
   tips numeric,
   driver_pay numeric,
@@ -119,6 +122,7 @@ CREATE TABLE fhv_trips (
   black_car_fund numeric,
   sales_tax numeric,
   congestion_surcharge numeric,
+  cbd_congestion_fee numeric,
   airport_fee numeric,
   tips numeric,
   driver_pay numeric,
@@ -180,6 +184,7 @@ CREATE TABLE trips (
   ehail_fee numeric,
   improvement_surcharge numeric,
   congestion_surcharge numeric,
+  cbd_congestion_fee numeric,
   airport_fee numeric,
   total_amount numeric,
   payment_type integer,

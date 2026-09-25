@@ -5,7 +5,7 @@ cd "$parent_path"
 
 year_month_regex="tripdata_([0-9]{4})-([0-9]{2})"
 
-for filename in ../data/yellow_tripdata*.parquet; do
+for filename in ../data/yellow_tripdata_*.parquet; do
   [[ $filename =~ $year_month_regex ]]
   year=${BASH_REMATCH[1]}
 
@@ -16,12 +16,12 @@ for filename in ../data/yellow_tripdata*.parquet; do
   fi
 
   echo "`date`: beginning load for ${filename}"
-  clickhouse-client --database=nyc_tlc_data --param_filename=${filename} --queries-file=setup_files/load_yellow_trips.sql --progress
+  clickhouse client --database=nyc_tlc_data --param_filename="${filename}" --queries-file=setup_files/load_yellow_trips.sql --progress < "${filename}"
   echo "`date`: done load for ${filename}"
 done;
 
-for filename in ../data/green_tripdata*.parquet; do
+for filename in ../data/green_tripdata_*.parquet; do
   echo "`date`: beginning load for ${filename}"
-  clickhouse-client --database=nyc_tlc_data --param_filename=${filename} --queries-file=setup_files/load_green_trips.sql --progress
+  clickhouse client --database=nyc_tlc_data --param_filename="${filename}" --queries-file=setup_files/load_green_trips.sql --progress < "${filename}"
   echo "`date`: done load for ${filename}"
 done;

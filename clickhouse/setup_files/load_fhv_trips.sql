@@ -1,5 +1,5 @@
-ALTER TABLE fhv_trips
-DELETE WHERE filename = splitByChar('/', {filename:String})[-1];
+DELETE FROM fhv_trips
+WHERE filename = splitByChar('/', {filename:String})[-1];
 
 INSERT INTO fhv_trips (
   hvfhs_license_num, company, dispatching_base_num, pickup_datetime,
@@ -23,7 +23,7 @@ SELECT
   ),
   trimBoth(upper(dispatching_base_num)),
   pickup_datetime,
-  dropOff_datetime,
+  nullIf(dropOff_datetime, '1989-01-01') AS dropoff_datetime,
   PUlocationID,
   DOlocationID,
   multiIf(
@@ -46,4 +46,16 @@ SELECT
   ),
   SR_Flag,
   splitByChar('/', {filename:String})[-1]
-FROM file({filename:String});
+FROM input('
+  dispatching_base_num Nullable(String),
+  pickup_datetime Nullable(DateTime64(6)),
+  dropOff_datetime Nullable(DateTime64(6)),
+  PUlocationID Nullable(Float64),
+  DOlocationID Nullable(Float64),
+  SR_Flag Nullable(Float64),
+  Affiliated_base_number Nullable(String)
+')
+SETTINGS
+  input_format_parquet_case_insensitive_column_matching = 1,
+  input_format_parquet_allow_missing_columns = 1
+FORMAT Parquet

@@ -8,18 +8,18 @@ ENGINE = MergeTree
 ORDER BY (location_id);
 
 CREATE TABLE fhv_trips (
-  hvfhs_license_num String,
-  company String,
-  dispatching_base_num Nullable(String),
-  originating_base_num Nullable(String),
+  hvfhs_license_num LowCardinality(String),
+  company LowCardinality(String),
+  dispatching_base_num LowCardinality(Nullable(String)),
+  originating_base_num LowCardinality(Nullable(String)),
   request_datetime Nullable(DateTime('UTC')),
   on_scene_datetime Nullable(DateTime('UTC')),
   pickup_datetime DateTime('UTC'),
-  dropoff_datetime DateTime('UTC'),
+  dropoff_datetime Nullable(DateTime('UTC')),
   pickup_location_id Nullable(UInt16),
   dropoff_location_id Nullable(UInt16),
-  pickup_borough Nullable(String),
-  dropoff_borough Nullable(String),
+  pickup_borough LowCardinality(Nullable(String)),
+  dropoff_borough LowCardinality(Nullable(String)),
   trip_miles Nullable(Float64),
   trip_time Nullable(UInt32),
   base_passenger_fare Nullable(Float64),
@@ -27,6 +27,7 @@ CREATE TABLE fhv_trips (
   black_car_fund Nullable(Float64),
   sales_tax Nullable(Float64),
   congestion_surcharge Nullable(Float64),
+  cbd_congestion_fee Nullable(Float64),
   airport_fee Nullable(Float64),
   tips Nullable(Float64),
   driver_pay Nullable(Float64),
@@ -36,20 +37,21 @@ CREATE TABLE fhv_trips (
   wav_request Nullable(Bool),
   wav_match Nullable(Bool),
   legacy_shared_ride Nullable(UInt16),
-  filename String
+  filename LowCardinality(String)
 )
 ENGINE = MergeTree
+PARTITION BY toYYYYMM(pickup_datetime)
 ORDER BY (company, pickup_datetime);
 
 CREATE TABLE taxi_trips (
-  car_type String,
+  car_type LowCardinality(String),
   vendor_id Nullable(UInt16),
   pickup_datetime DateTime('UTC'),
   dropoff_datetime DateTime('UTC'),
   pickup_location_id Nullable(UInt16),
   dropoff_location_id Nullable(UInt16),
-  pickup_borough Nullable(String),
-  dropoff_borough Nullable(String),
+  pickup_borough LowCardinality(Nullable(String)),
+  dropoff_borough LowCardinality(Nullable(String)),
   passenger_count Nullable(UInt16),
   trip_distance Nullable(Float64),
   rate_code_id Nullable(UInt16),
@@ -63,12 +65,14 @@ CREATE TABLE taxi_trips (
   improvement_surcharge Nullable(Float64),
   total_amount Nullable(Float64),
   congestion_surcharge Nullable(Float64),
+  cbd_congestion_fee Nullable(Float64),
   airport_fee Nullable(Float64),
   trip_type Nullable(UInt16),
   ehail_fee Nullable(Float64),
-  filename String
+  filename LowCardinality(String)
 )
 ENGINE = MergeTree
+PARTITION BY toYYYYMM(pickup_datetime)
 ORDER BY (car_type, pickup_datetime);
 
 CREATE OR REPLACE VIEW fhv_trips_expanded AS
@@ -97,6 +101,7 @@ SELECT
     coalesce(black_car_fund, 0) +
     coalesce(sales_tax, 0) +
     coalesce(congestion_surcharge, 0) +
+    coalesce(cbd_congestion_fee, 0) +
     coalesce(airport_fee, 0) AS extra_charges
 FROM fhv_trips;
 
@@ -122,6 +127,7 @@ SELECT
     coalesce(tolls_amount, 0) +
     coalesce(improvement_surcharge, 0) +
     coalesce(congestion_surcharge, 0) +
+    coalesce(cbd_congestion_fee, 0) +
     coalesce(airport_fee, 0) +
     coalesce(ehail_fee, 0) AS extra_charges
 FROM taxi_trips;
